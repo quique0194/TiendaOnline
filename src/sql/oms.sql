@@ -1,25 +1,284 @@
-CREATE TABLE usuario
-(
-   id bigserial, 
-   first_name character varying(256),
-   last_name character varying(256),
-   username character varying(64),
-   password character varying(256),
-   email character varying(64),
-   CONSTRAINT pk_usuario_id PRIMARY KEY (id)
-);
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-create table producto (
-	id bigserial primary key,
-	name character varying(256)
-);
+DROP SCHEMA IF EXISTS `Portal_Descarga` ;
+CREATE SCHEMA IF NOT EXISTS `Portal_Descarga` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+SHOW WARNINGS;
+USE `Portal_Descarga` ;
 
-create table compra
-(
-   id bigserial primary key,
-   producto_id bigint,
-   usuario_id  bigint,
-   fecha date,
-   constraint fk_producto_id foreign key (producto_id) references producto(id),
-   constraint fk_usuario_id foreign key (usuario_id) references usuario(id)
-);
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Users`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Users` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Users` (
+  `id_usuario` INT NOT NULL ,
+  `username` VARCHAR(45) NOT NULL ,
+  `password` VARCHAR(45) NOT NULL ,
+  `first_name` VARCHAR(64) NOT NULL ,
+  `last_name` VARCHAR(64) NOT NULL ,
+  `email` VARCHAR(45) NOT NULL ,
+  `state` TINYINT(1) NOT NULL ,
+  `balance` INT NOT NULL DEFAULT 0 ,
+  `points` INT NOT NULL DEFAULT 0 ,
+  PRIMARY KEY (`id_usuario`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Categories`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Categories` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Categories` (
+  `id_category` INT NOT NULL ,
+  `name` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id_category`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Promotions`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Promotions` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Promotions` (
+  `id_promotion` INT NOT NULL ,
+  `start_date` DATE NOT NULL ,
+  `end_date` DATE NOT NULL ,
+  `percent` INT NOT NULL ,
+  PRIMARY KEY (`id_promotion`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Type_content`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Type_content` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Type_content` (
+  `id_typecontent` INT NOT NULL ,
+  `type_content` VARCHAR(64) NOT NULL ,
+  PRIMARY KEY (`id_typecontent`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Type_file`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Type_file` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Type_file` (
+  `id_typefile` INT NOT NULL ,
+  `extension` VARCHAR(45) NOT NULL ,
+  `mime` VARCHAR(45) NOT NULL ,
+  `id_typecontent` INT NOT NULL ,
+  PRIMARY KEY (`id_typefile`, `id_typecontent`) ,
+  INDEX `fk_Tipo_archivo_Tipo_contenido1_idx` (`id_typecontent` ASC) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Contents`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Contents` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Contents` (
+  `id_content` INT NOT NULL ,
+  `name` VARCHAR(45) NOT NULL ,
+  `autor` VARCHAR(45) NULL ,
+  `description` VARCHAR(45) NULL ,
+  `price` VARCHAR(45) NOT NULL ,
+  `size` VARCHAR(45) NOT NULL ,
+  `times_download` INT NOT NULL DEFAULT 0 ,
+  `id_category` INT NOT NULL ,
+  `id_promotion` INT NOT NULL ,
+  `id_typefile` INT NOT NULL ,
+  PRIMARY KEY (`id_content`) ,
+  INDEX `fk_Contenido_Categoria1_idx` (`id_category` ASC) ,
+  INDEX `fk_Contenido_Promocion1_idx` (`id_promotion` ASC) ,
+  INDEX `fk_Contenido_Tipo_archivo1_idx` (`id_typefile` ASC) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Payments`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Payments` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Payments` (
+  `id_user` INT NOT NULL ,
+  `id_content` INT NOT NULL ,
+  PRIMARY KEY (`id_user`, `id_content`) ,
+  INDEX `fk_Pagos_Contenido1_idx` (`id_content` ASC) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Downloads`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Downloads` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Downloads` (
+  `id_download` INT NOT NULL ,
+  `date` DATE NOT NULL ,
+  `id_content` INT NOT NULL ,
+  `id_user` INT NOT NULL ,
+  PRIMARY KEY (`id_download`) ,
+  INDEX `fk_Descarga_Contenido1_idx` (`id_content` ASC) ,
+  INDEX `fk_Descarga_Usuario1_idx` (`id_user` ASC) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Puntuations`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Puntuations` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Puntuations` (
+  `val` INT NOT NULL ,
+  `id_content` INT NOT NULL ,
+  `id_user` INT NOT NULL ,
+  PRIMARY KEY (`id_content`, `id_user`) ,
+  INDEX `fk_Puntuacion_Contenido1_idx` (`id_content` ASC) ,
+  INDEX `fk_Puntuacion_Usuario1_idx` (`id_user` ASC) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Notifications`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Notifications` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Notifications` (
+  `id_notification` INT NOT NULL ,
+  `detail` VARCHAR(256) NOT NULL ,
+  `id_user` INT NOT NULL ,
+  PRIMARY KEY (`id_notification`, `id_user`) ,
+  INDEX `fk_Notificacion_Usuario1_idx` (`id_user` ASC) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Vouchers`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Vouchers` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Vouchers` (
+  `id_vale` INT NOT NULL ,
+  `points` VARCHAR(45) NOT NULL ,
+  `discount` TINYINT NOT NULL ,
+  PRIMARY KEY (`id_vale`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Voucher_user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Voucher_user` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Voucher_user` (
+  `id_voucher` INT NOT NULL ,
+  `id_user` INT NOT NULL ,
+  PRIMARY KEY (`id_voucher`, `id_user`) ,
+  INDEX `fk_Vale_Usuario_Usuario1_idx` (`id_user` ASC) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Administrator`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Administrator` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Administrator` (
+  `id_administrator` INT NOT NULL AUTO_INCREMENT ,
+  `username` VARCHAR(45) NOT NULL ,
+  `password` VARCHAR(45) NOT NULL ,
+  `first_name` VARCHAR(64) NOT NULL ,
+  `last_name` VARCHAR(64) NOT NULL ,
+  `email` VARCHAR(128) NOT NULL ,
+  PRIMARY KEY (`id_administrator`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Tasks`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Tasks` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Tasks` (
+  `id_task` INT UNSIGNED NOT NULL ,
+  `task` VARCHAR(256) NOT NULL ,
+  PRIMARY KEY (`id_task`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`Logs_administrator`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`Logs_administrator` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Logs_administrator` (
+  `date` DATE NOT NULL ,
+  `detail` VARCHAR(45) NOT NULL ,
+  `id_administrator` INT NOT NULL ,
+  `id_task` INT NOT NULL ,
+  PRIMARY KEY (`date`) ,
+  INDEX `fk_Log_administrador_Administrador1_idx` (`id_administrator` ASC) ,
+  INDEX `fk_Log_administrador_Tarea1_idx` (`id_task` ASC) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `Portal_Descarga`.`SuperAdministrator`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Portal_Descarga`.`SuperAdministrator` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`SuperAdministrator` (
+  `id_superadministrator` INT NOT NULL AUTO_INCREMENT ,
+  `username` VARCHAR(45) NOT NULL ,
+  `password` VARCHAR(45) NOT NULL ,
+  `first_name` VARCHAR(64) NOT NULL ,
+  `last_name` VARCHAR(64) NOT NULL ,
+  `email` VARCHAR(128) NOT NULL ,
+  PRIMARY KEY (`id_superadministrator`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
