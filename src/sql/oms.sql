@@ -105,11 +105,11 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Contents` (
   `size` INT NOT NULL ,
   `times_download` INT NOT NULL DEFAULT 0 ,
   `id_category` INT NOT NULL ,
-  `id_promotion` INT NOT NULL ,
+  `id_promo` INT NOT NULL ,
   `id_typefile` INT NOT NULL ,
   PRIMARY KEY (`id_content`) ,
   INDEX `fk_Contenido_Categoria1_idx` (`id_category` ASC) ,
-  INDEX `fk_Contenido_Promocion1_idx` (`id_promotion` ASC) ,
+  INDEX `fk_Contenido_Promocion1_idx` (`id_promo` ASC) ,
   INDEX `fk_Contenido_Tipo_archivo1_idx` (`id_typefile` ASC) )
 ENGINE = InnoDB;
 
