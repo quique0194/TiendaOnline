@@ -4,7 +4,7 @@ public class MediaContent implements BaseEntity<Long> {
 
 	public static final String TABLE_NAME = "producto";
 
-	private Long id;
+	private int id;
 
 	private MediaType type;
 

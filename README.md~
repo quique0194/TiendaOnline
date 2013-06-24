@@ -8,7 +8,7 @@ Reparticion de clases:
 
   Miguel:
     Persona
-    Usuario
+    Notificacion
   Jean:
     Tarea
     Administrador
@@ -19,6 +19,5 @@ Reparticion de clases:
     Superadmin
     Promocion
   Enrique:
-    Notificacion
     Contenido
-
+    Usuario
