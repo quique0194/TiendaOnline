@@ -8,7 +8,7 @@ package pe.edu.ucsp.oms.domain;
  */
 public class User implements BaseEntity<Long> {
 
-	public final static String TABLE_NAME = "usuario";
+	public final static String TABLE_NAME = "Users";
 
 	private Long id;
 
