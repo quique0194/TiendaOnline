@@ -24,8 +24,8 @@ public class JdbcUserDao extends JdbcGenericDao<User, Integer> implements
 
 	@Override
 	public void update(final User user) {
-		String sql = "UPDATE " + getTableName() + " SET first_name = ?, last_name = ?, email = ?, username = ? WHERE id = ?";
-		jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(), user.getEmail(), user.getUsername(), user.getId());
+		String sql = "UPDATE " + getTableName() + "SET username = ? , password = ? ,first_name = ?, last_name = ?, email = ?,state = ? , balance = ? , points = ?  WHERE id = ?";
+		jdbcTemplate.update(sql,user.getUsername(),user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(),user.getState(), user.getBalance(),user.getPoints(), user.getId());
 	}
 
 	@Override
@@ -67,12 +67,15 @@ public class JdbcUserDao extends JdbcGenericDao<User, Integer> implements
 	public static class UserMapper implements RowMapper<User> {
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			User user = new User();
-			user.setId(rs.getInt("id"));
+			user.setId(rs.getInt("id_usuario"));
 			user.setUsername(rs.getString("username"));
 			user.setPassword(rs.getString("password"));
 			user.setFirstName(rs.getString("first_name"));
 			user.setLastName(rs.getString("last_name"));
 			user.setEmail(rs.getString("email"));
+			user.setState(rs.getBoolean("state"));
+			user.setBalance(rs.getDouble("balance"));
+			user.setPoints(rs.getInt("points"));
 			return user;
 		}
 	}
