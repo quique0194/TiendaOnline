@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import pe.edu.ucsp.oms.domain.MediaContent;
-import pe.edu.ucsp.oms.repository.MediaContentDao;
+import pe.edu.ucsp.oms.domain.Content;
+import pe.edu.ucsp.oms.repository.ContentDao;
 
 @Controller
 @RequestMapping("/producto")
 public class MediaContentController {
 
 	@Inject
-	MediaContentDao dao;
+	ContentDao dao;
 
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
@@ -45,13 +45,13 @@ public class MediaContentController {
 	@RequestMapping("/add.html")
 	public ModelAndView add() {
 		ModelAndView view = new ModelAndView();
-		view.addObject("producto", new MediaContent());
+		view.addObject("producto", new Content());
 		view.setViewName("producto/edit");
 		return view;
 	}
 
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("producto") MediaContent producto, BindingResult result, SessionStatus status) {
+	public ModelAndView save(@ModelAttribute("producto") Content producto, BindingResult result, SessionStatus status) {
 		if (producto.getId() == null) {
 			dao.save(producto);
 			status.setComplete();

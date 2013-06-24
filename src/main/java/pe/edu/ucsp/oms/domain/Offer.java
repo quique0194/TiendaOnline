@@ -13,7 +13,7 @@ public class Offer implements BaseEntity<Integer> {
 
 	private String name;
 
-	private List<MediaContent> products;
+	private List<Content> products;
 
 	@Override
 	public Integer getId() {
@@ -49,11 +49,11 @@ public class Offer implements BaseEntity<Integer> {
 	  this.name = name;
   }
 
-	public List<MediaContent> getProducts() {
+	public List<Content> getProducts() {
 	  return products;
   }
 
-	public void setProducts(List<MediaContent> products) {
+	public void setProducts(List<Content> products) {
 	  this.products = products;
   }
 }

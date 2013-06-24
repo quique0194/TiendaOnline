@@ -18,7 +18,7 @@ public class Purchase implements BaseEntity<Long> {
 
 	private User owner;
 
-	private MediaContent product;
+	private Content product;
 
 	private Double price;
 
@@ -55,11 +55,11 @@ public class Purchase implements BaseEntity<Long> {
 	  this.owner = owner;
   }
 
-	public MediaContent getProduct() {
+	public Content getProduct() {
 	  return product;
   }
 
-	public void setProduct(MediaContent product) {
+	public void setProduct(Content product) {
 	  this.product = product;
   }
 
