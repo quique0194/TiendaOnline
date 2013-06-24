@@ -14,14 +14,14 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Users` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Users` (
-  `id_usuario` INT NOT NULL ,
+  `id_usuario` INT NOT NULL AUTO_INCREMENT ,
   `username` VARCHAR(45) NOT NULL ,
   `password` VARCHAR(45) NOT NULL ,
   `first_name` VARCHAR(64) NOT NULL ,
   `last_name` VARCHAR(64) NOT NULL ,
   `email` VARCHAR(45) NOT NULL ,
   `state` TINYINT(1) NOT NULL ,
-  `balance` INT NOT NULL DEFAULT 0 ,
+  `balance` DECIMAL(2) NOT NULL DEFAULT 0 ,
   `points` INT NOT NULL DEFAULT 0 ,
   PRIMARY KEY (`id_usuario`) )
 ENGINE = InnoDB;
@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Categories` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Categories` (
-  `id_category` INT NOT NULL ,
+  `id_category` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`id_category`) )
 ENGINE = InnoDB;
@@ -43,17 +43,17 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `Portal_Descarga`.`Promotions`
+-- Table `Portal_Descarga`.`Promos`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Portal_Descarga`.`Promotions` ;
+DROP TABLE IF EXISTS `Portal_Descarga`.`Promos` ;
 
 SHOW WARNINGS;
-CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Promotions` (
-  `id_promotion` INT NOT NULL ,
+CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Promos` (
+  `id_promo` INT NOT NULL AUTO_INCREMENT ,
   `start_date` DATE NOT NULL ,
   `end_date` DATE NOT NULL ,
   `percent` INT NOT NULL ,
-  PRIMARY KEY (`id_promotion`) )
+  PRIMARY KEY (`id_promo`) )
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -65,7 +65,7 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Type_content` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Type_content` (
-  `id_typecontent` INT NOT NULL ,
+  `id_typecontent` INT NOT NULL AUTO_INCREMENT ,
   `type_content` VARCHAR(64) NOT NULL ,
   PRIMARY KEY (`id_typecontent`) )
 ENGINE = InnoDB;
@@ -79,7 +79,7 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Type_file` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Type_file` (
-  `id_typefile` INT NOT NULL ,
+  `id_typefile` INT NOT NULL AUTO_INCREMENT ,
   `extension` VARCHAR(45) NOT NULL ,
   `mime` VARCHAR(45) NOT NULL ,
   `id_typecontent` INT NOT NULL ,
@@ -96,12 +96,13 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Contents` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Contents` (
-  `id_content` INT NOT NULL ,
+  `id_content` INT NOT NULL AUTO_INCREMENT ,
+  `content` VARCHAR(512) NULL ,
   `name` VARCHAR(45) NOT NULL ,
   `autor` VARCHAR(45) NULL ,
   `description` VARCHAR(45) NULL ,
-  `price` VARCHAR(45) NOT NULL ,
-  `size` VARCHAR(45) NOT NULL ,
+  `price` DECIMAL(2) NOT NULL ,
+  `size` INT NOT NULL ,
   `times_download` INT NOT NULL DEFAULT 0 ,
   `id_category` INT NOT NULL ,
   `id_promotion` INT NOT NULL ,
@@ -136,7 +137,7 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Downloads` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Downloads` (
-  `id_download` INT NOT NULL ,
+  `id_download` INT NOT NULL AUTO_INCREMENT ,
   `date` DATE NOT NULL ,
   `id_content` INT NOT NULL ,
   `id_user` INT NOT NULL ,
@@ -171,7 +172,7 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Notifications` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Notifications` (
-  `id_notification` INT NOT NULL ,
+  `id_notification` INT NOT NULL AUTO_INCREMENT ,
   `detail` VARCHAR(256) NOT NULL ,
   `id_user` INT NOT NULL ,
   PRIMARY KEY (`id_notification`, `id_user`) ,
@@ -187,7 +188,7 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Vouchers` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Vouchers` (
-  `id_vale` INT NOT NULL ,
+  `id_vale` INT NOT NULL AUTO_INCREMENT ,
   `points` VARCHAR(45) NOT NULL ,
   `discount` TINYINT NOT NULL ,
   PRIMARY KEY (`id_vale`) )
@@ -235,7 +236,7 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Tasks` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Tasks` (
-  `id_task` INT UNSIGNED NOT NULL ,
+  `id_task` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `task` VARCHAR(256) NOT NULL ,
   PRIMARY KEY (`id_task`) )
 ENGINE = InnoDB;
@@ -250,7 +251,7 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Logs_administrator` ;
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Logs_administrator` (
   `date` DATE NOT NULL ,
-  `detail` VARCHAR(45) NOT NULL ,
+  `detail` VARCHAR(256) NOT NULL ,
   `id_administrator` INT NOT NULL ,
   `id_task` INT NOT NULL ,
   PRIMARY KEY (`date`) ,
