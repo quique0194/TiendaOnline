@@ -69,9 +69,9 @@ public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
 			User user = new User();
 			user.setId(rs.getLong("id"));
 			user.setUsername(rs.getString("username"));
+			user.setPassword(rs.getString("password"));
 			user.setFirstName(rs.getString("first_name"));
 			user.setLastName(rs.getString("last_name"));
-			user.setPassword(rs.getString("password"));
 			user.setEmail(rs.getString("email"));
 			return user;
 		}
