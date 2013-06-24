@@ -12,10 +12,8 @@ public class Content implements BaseEntity<Integer>{
 	private int size;
 	private int timesDownload;
 	private Category category;
-	private Promo promo;
-	private String contentType;
-	private String extension;
-	private String mime;	
+	private Promo promo;	
+	private MediaType mediaType;	
 	private String contentPath;
 
 	@Override
@@ -82,30 +80,6 @@ public class Content implements BaseEntity<Integer>{
 
 	public void setPromo(Promo promo) {
 		this.promo = promo;
-	}
-
-	public String getContentType() {
-		return contentType;
-	}
-
-	public void setContentType(String contentType) {
-		this.contentType = contentType;
-	}
-
-	public String getExtension() {
-		return extension;
-	}
-
-	public void setExtension(String extension) {
-		this.extension = extension;
-	}
-
-	public String getMime() {
-		return mime;
-	}
-
-	public void setMime(String mime) {
-		this.mime = mime;
 	}
 
 	public String getContentPath() {

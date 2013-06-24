@@ -38,7 +38,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public @ResponseBody User handleGetUserById(@PathVariable("id") Long id) {
+	public @ResponseBody User handleGetUserById(@PathVariable("id") int id) {
 		return userDao.find(id);
 	}
 

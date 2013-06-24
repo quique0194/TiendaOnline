@@ -16,7 +16,7 @@ import pe.edu.ucsp.oms.domain.User;
 import pe.edu.ucsp.oms.repository.UserDao;
 
 @Repository
-public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
+public class JdbcUserDao extends JdbcGenericDao<User, Integer> implements
 		UserDao {
 
 	private final UserMapper mapper = new UserMapper();
@@ -67,7 +67,7 @@ public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
 	public static class UserMapper implements RowMapper<User> {
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			User user = new User();
-			user.setId(rs.getLong("id"));
+			user.setId(rs.getInt("id"));
 			user.setUsername(rs.getString("username"));
 			user.setPassword(rs.getString("password"));
 			user.setFirstName(rs.getString("first_name"));
