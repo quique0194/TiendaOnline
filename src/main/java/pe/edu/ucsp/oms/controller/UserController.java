@@ -24,7 +24,7 @@ import pe.edu.ucsp.oms.service.UserService;
  *
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/User")
 public class UserController {
 	final static Logger logger = Logger.getLogger(UserController.class);
 

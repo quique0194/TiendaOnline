@@ -12,8 +12,8 @@ public class User implements BaseEntity<Integer> {
 	private String lastName;
 	private String email;
 	private Double balance;
-	private int puntos;
-	Content[] descargas;
+	private int points;
+	Content[] downloads;
 	
 	public User() {
 	}
