@@ -4,7 +4,7 @@ import java.util.List;
 
 import pe.edu.ucsp.oms.domain.User;
 
-public interface UserDao extends GenericDao<User, Integer> {
+public interface UserDao extends GenericDao<User, Long> {
 	User findByEmail(String email);
 
 	List<User> filterByEmail(String email);

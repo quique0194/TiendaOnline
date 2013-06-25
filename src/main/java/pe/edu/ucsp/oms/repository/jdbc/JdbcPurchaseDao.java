@@ -13,15 +13,12 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.ucsp.oms.domain.Purchase;
 import pe.edu.ucsp.oms.repository.PurchaseDao;
-import pe.edu.ucsp.oms.repository.jdbc.JdbcUserDao.UserMapper;
 
 @Repository
 public class JdbcPurchaseDao extends JdbcGenericDao<Purchase, Long> implements
 		PurchaseDao {
 
 	private final MediaContentMapper mapper = new MediaContentMapper();
-	private final UserMapper userMapper = new UserMapper();
-	private final MediaContentMapper mediaContentMapper = new MediaContentMapper();
 	protected PasswordEncoder encoder = new Md5PasswordEncoder();
 
 	@Override
@@ -36,7 +33,7 @@ public class JdbcPurchaseDao extends JdbcGenericDao<Purchase, Long> implements
 	@Override
 	protected SimpleJdbcInsert createJdbcInsert() {
 		return new SimpleJdbcInsert(jdbcTemplate.getDataSource())
-				.withTableName(getTableName()).usingGeneratedKeyColumns("id");
+				.withTableName(getTableName()).usingGeneratedKeyColumns("id_content");
 	}
 
 	@Override
@@ -52,7 +49,7 @@ public class JdbcPurchaseDao extends JdbcGenericDao<Purchase, Long> implements
 	public static class MediaContentMapper implements RowMapper<Purchase> {
 		public Purchase mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Purchase mediaContent = new Purchase();
-			mediaContent.setId(rs.getLong("id"));
+			mediaContent.setId(rs.getLong("id_content"));
 			mediaContent.setUsusuarioId(rs.getLong("usuario_id"));
 			mediaContent.setProductoId(rs.getLong("producto_id"));
 			mediaContent.setDownloadDate(rs.getDate("fecha"));

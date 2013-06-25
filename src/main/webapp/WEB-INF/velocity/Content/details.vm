@@ -5,11 +5,23 @@
 	<table>
 		<tr>
 			<td><b>Id:</b></td>
-			<td>$producto.id<td>
+			<td>$content.id<td>
 		</tr>
 		<tr>
 			<td><b>Name:</b></td>
-			<td>$producto.name<td>
+			<td>$content.name<td>
+		</tr>
+		<tr>
+			<td><b>Autor:</b></td>
+			<td>$content.autor<td>
+		</tr>
+		<tr>
+			<td><b>Descripcion:</b></td>
+			<td>$content.description<td>
+		</tr>
+		<tr>
+			<td><b>Precio:</b></td>
+			<td>$content.price<td>
 		</tr>
 	</table>
 	<br />

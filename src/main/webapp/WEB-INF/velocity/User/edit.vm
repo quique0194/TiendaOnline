@@ -11,6 +11,10 @@
 			<td><input type="text" name="username" value="$!user.username"/><td>
 		</tr>
 		<tr>
+			<td><b>Password:</b></td>
+			<td><input type="text" name="password" value="$!user.password"/><td>
+		</tr>
+		<tr>
 			<td><b>First Name:</b></td>
 			<td><input type="text" name="firstName" value="$!user.firstName"/><td>
 		</tr>

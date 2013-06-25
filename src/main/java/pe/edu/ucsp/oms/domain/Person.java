@@ -2,7 +2,7 @@ package pe.edu.ucsp.oms.domain;
 
 public class Person {
 	
-	protected Integer id;
+	protected Long id;
 	protected String username;
 	protected String password;
 	protected String firstName;

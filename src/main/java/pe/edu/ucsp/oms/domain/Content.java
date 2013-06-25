@@ -1,10 +1,11 @@
 package pe.edu.ucsp.oms.domain;
 
-public class Content implements BaseEntity<Integer>{
+public class Content implements BaseEntity<Long>{
 
 	public static final String TABLE_NAME = "Contents";
 	
-	private Integer id;
+	private Long id;
+	private String content;
 	private String name;
 	private String autor;
 	private String description;
@@ -14,15 +15,26 @@ public class Content implements BaseEntity<Integer>{
 	private Category category;
 	private Promo promo;	
 	private MediaType mediaType;	
-	private String contentPath;
+	
 
 	@Override
-	public Integer getId() {
+	public String toString() {
+		String str="";
+		str+="ID: "+Long.toString(id)+"\n";
+		str+="Name: "+name+"\n";
+		str+="Autor: "+autor+"\n";
+		str+="Description: "+description+"\n";
+		str+="Price: "+Float.toString(price)+"\n";
+		return str;
+	}
+	
+	@Override
+	public Long getId() {
 		return id;
 	}
 
 	@Override
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id=id;
 		
 	}
@@ -82,13 +94,7 @@ public class Content implements BaseEntity<Integer>{
 		this.promo = promo;
 	}
 
-	public String getContentPath() {
-		return contentPath;
-	}
 
-	public void setContentPath(String contentPath) {
-		this.contentPath = contentPath;
-	}
 
 	public int getTimesDownload() {
 		return timesDownload;
@@ -96,6 +102,22 @@ public class Content implements BaseEntity<Integer>{
 
 	public void setTimesDownload(int timesDownload) {
 		this.timesDownload = timesDownload;
+	}
+
+	public MediaType getMediaType() {
+		return mediaType;
+	}
+
+	public void setMediaType(MediaType mediaType) {
+		this.mediaType = mediaType;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 	
 }

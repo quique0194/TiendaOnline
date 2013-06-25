@@ -1,6 +1,6 @@
 package pe.edu.ucsp.oms.domain;
 
-public class User extends Person implements BaseEntity<Integer> {
+public class User extends Person implements BaseEntity<Long> {
 
 	public final static String TABLE_NAME = "Users";
 
@@ -14,12 +14,12 @@ public class User extends Person implements BaseEntity<Integer> {
 	}
 
 	@Override
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	
 	@Override
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id=id;	
 	}
 

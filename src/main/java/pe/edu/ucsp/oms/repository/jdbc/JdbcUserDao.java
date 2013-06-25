@@ -16,7 +16,7 @@ import pe.edu.ucsp.oms.domain.User;
 import pe.edu.ucsp.oms.repository.UserDao;
 
 @Repository
-public class JdbcUserDao extends JdbcGenericDao<User, Integer> implements
+public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
 		UserDao {
 
 	private final UserMapper mapper = new UserMapper();
@@ -24,8 +24,8 @@ public class JdbcUserDao extends JdbcGenericDao<User, Integer> implements
 
 	@Override
 	public void update(final User user) {
-		String sql = "UPDATE " + getTableName() + "SET username = ? , password = ? ,first_name = ?, last_name = ?, email = ?,state = ? , balance = ? , points = ?  WHERE id = ?";
-		jdbcTemplate.update(sql,user.getUsername(),user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(),user.getState(), user.getBalance(),user.getPoints(), user.getId());
+		String sql = "UPDATE " + getTableName() + " SET username = ? , password=?, first_name = ?, last_name = ?, email = ?  WHERE id = ?";
+		jdbcTemplate.update(sql,user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getId());
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class JdbcUserDao extends JdbcGenericDao<User, Integer> implements
 	public static class UserMapper implements RowMapper<User> {
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			User user = new User();
-			user.setId(rs.getInt("id_usuario"));
+			user.setId(rs.getLong("id"));
 			user.setUsername(rs.getString("username"));
 			user.setPassword(rs.getString("password"));
 			user.setFirstName(rs.getString("first_name"));

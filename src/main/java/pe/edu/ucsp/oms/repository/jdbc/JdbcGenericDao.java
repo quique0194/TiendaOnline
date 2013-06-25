@@ -51,7 +51,7 @@ public abstract class JdbcGenericDao<T extends BaseEntity<PK>, PK extends Number
 	
 	@Override
 	public List<T> findAll() {
-        String sql = "SELECT * FROM " + getTableName();
+		String sql = "SELECT * FROM " + getTableName();        
         return jdbcTemplate.query(sql, getRowMapper());
 	}
 	
