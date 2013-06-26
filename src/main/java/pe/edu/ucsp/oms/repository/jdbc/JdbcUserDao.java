@@ -36,9 +36,9 @@ public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
 
 	@Override
 	public User findByEmail(String email) {
-    String sql = "SELECT * FROM " + getTableName() + " WHERE email = :email";
-    SqlParameterSource namedParameters = new MapSqlParameterSource("email", email);
-    return jdbcTemplate.queryForObject(sql, getRowMapper(), namedParameters);
+	    String sql = "SELECT * FROM " + getTableName() + " WHERE email = :email";
+	    SqlParameterSource namedParameters = new MapSqlParameterSource("email", email);
+	    return jdbcTemplate.queryForObject(sql, getRowMapper(), namedParameters);
 	}
 
 	@Override
@@ -78,5 +78,11 @@ public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
 			user.setPoints(rs.getInt("points"));
 			return user;
 		}
+	}
+
+	@Override
+	public boolean existsUser(String username, String password) {
+		String sql = "SELECT * FROM " + getTableName() + " WHERE username = ? and password = ?";
+        return jdbcTemplate.queryForRowSet(sql, username, password).next();        
 	}
 }

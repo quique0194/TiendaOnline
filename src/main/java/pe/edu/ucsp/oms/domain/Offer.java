@@ -5,6 +5,11 @@ import java.util.List;
 
 
 public class Offer implements BaseEntity<Integer> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Integer id;
 
 	private Date start;

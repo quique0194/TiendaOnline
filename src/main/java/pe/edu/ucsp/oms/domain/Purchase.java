@@ -4,6 +4,11 @@ import java.util.Date;
 
 public class Purchase implements BaseEntity<Long> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static final String TABLE_NAME = "compra";
 
 	private Long id;

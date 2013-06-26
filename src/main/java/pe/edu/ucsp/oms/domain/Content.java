@@ -2,6 +2,11 @@ package pe.edu.ucsp.oms.domain;
 
 public class Content implements BaseEntity<Long>{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static final String TABLE_NAME = "Contents";
 	
 	private Long id;

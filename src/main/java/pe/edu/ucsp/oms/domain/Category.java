@@ -2,6 +2,11 @@ package pe.edu.ucsp.oms.domain;
 
 public class Category implements BaseEntity<Integer> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Integer id;
 
 	private Category parent;
