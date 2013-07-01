@@ -25,7 +25,7 @@ public class UsuarioController {
 	public ModelAndView list() {
 		return new ModelAndView("user/list", "users", userDao.findAll());
 	}
-
+/*
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable int id) {
 		ModelAndView view = new ModelAndView();
@@ -41,7 +41,7 @@ public class UsuarioController {
 		view.setViewName("user/edit");
 		return view;
 	}
-
+*/
 	@RequestMapping("/add.html")
 	public ModelAndView add() {
 		ModelAndView view = new ModelAndView();

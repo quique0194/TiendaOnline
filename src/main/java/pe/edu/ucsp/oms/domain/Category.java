@@ -60,4 +60,6 @@ public class Category implements BaseEntity<Long> {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	
 }
