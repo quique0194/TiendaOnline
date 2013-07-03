@@ -1,63 +1,66 @@
-/*package pe.edu.ucsp.oms.controller;
+package pe.edu.ucsp.oms.controller;
 
-import java.util.Arrays;
-import java.util.List;
+import javax.inject.Inject;
 
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 import pe.edu.ucsp.oms.domain.Administrator;
 import pe.edu.ucsp.oms.repository.AdministratorDao;
-import pe.edu.ucsp.oms.service.AdministratorService;
+
 
 @Controller
-@RequestMapping("/admi")
+@RequestMapping("/Administrator")
 public class AdministratorController {
-	final static Logger logger = Logger.getLogger(AdministratorController.class);
 
-	@Autowired
-	AdministratorService admiService;
-
-	@Autowired
+	@Inject
 	AdministratorDao admiDao;
 
-	public AdministratorController() {
+	@RequestMapping("/list.html")
+	public ModelAndView list() {
+		return new ModelAndView("Administrator/list", "admis", admiDao.findAll());
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public @ResponseBody Administrator handleGetAdministratorById(@PathVariable("id") Long id) {
-		return admiDao.find(id);
+	@RequestMapping("/{id}/details.html")
+	public ModelAndView details(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView();
+		view.addObject("admi", admiDao.find(id));
+		view.setViewName("Administrator/details");
+		return view;
 	}
 
-	@RequestMapping(method = RequestMethod.GET, params="email")
-	public @ResponseBody
-	List<Administrator> handleGetAdministratorByEmail(@RequestParam(value = "email", required = true) String email) {
-		return admiDao.filterByEmail(email);
+	@RequestMapping("/{id}/edit.html")
+	public ModelAndView edit(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView();
+		view.addObject("admi", admiDao.find(id));
+		view.setViewName("Administrator/edit");
+		return view;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody Administrator handleAddUsesr(@RequestBody Administrator admi) {
-		admiDao.save(admi);
-		return admi;
+	@RequestMapping("/add.html")
+	public ModelAndView add() {
+		ModelAndView view = new ModelAndView();
+		view.addObject("admi", new Administrator());
+		view.setViewName("Administrator/edit");
+		return view;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody List<Administrator> handleListAll() {
-		return admiDao.findAll();
-	}
-
-	@RequestMapping(method = RequestMethod.DELETE)
-	public @ResponseBody Boolean handleRemoveByIds(@RequestParam("id") String[] ids) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("Deleting admis with ID: " + Arrays.deepToString(ids));
+	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
+	public ModelAndView save(@ModelAttribute("admi") Administrator admi, BindingResult result, SessionStatus status) {
+		if (admi.getId() == null) {
+			admiDao.save(admi);
+			status.setComplete();
 		}
-		return true;
+		else {
+			admiDao.update(admi);
+			status.setComplete();
+		}
+		return list();
 	}
-}*/
+}
