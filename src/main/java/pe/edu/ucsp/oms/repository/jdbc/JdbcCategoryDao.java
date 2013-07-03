@@ -20,7 +20,7 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 	private final CategoryMapper mapper = new CategoryMapper();
 	
 	@Override
-	public void update(Category content) {
+	public void update(Category category) {
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 	}
 
 	@Override
-	public Category findByname(String name) {
+	public Category findByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

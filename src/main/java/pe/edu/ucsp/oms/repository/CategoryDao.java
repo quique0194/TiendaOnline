@@ -6,7 +6,7 @@ import pe.edu.ucsp.oms.domain.Category;
 
 public interface CategoryDao extends GenericDao<Category, Long> {
 
-	Category findByname(String name);
+	Category findByName(String name);
 	
 	List<Category> filterByParent (String parent);
 
