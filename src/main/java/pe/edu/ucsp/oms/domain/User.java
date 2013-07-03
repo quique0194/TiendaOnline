@@ -14,10 +14,9 @@ public class User extends Person implements BaseEntity<Long> {
 	private int points;
 	private Content[] downloads;
 	
+	
 	public User() {
 	}
-
-
 
 	public Double getBalance() {
 		return balance;
