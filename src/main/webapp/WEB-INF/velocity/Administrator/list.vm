@@ -1,0 +1,13 @@
+<html>
+<body>
+#if($admis.empty)
+	<div>No hay administradores</div>
+#else
+	<ul>
+	#foreach($admi in $admis)
+		<li><a href="${admi.id}/details.html">$admi.firstName $admi.lastName</a></li>
+	#end
+	</ul>
+#end
+</body>
+</html>
