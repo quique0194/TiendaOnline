@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import pe.edu.ucsp.oms.repository.AdministratorDao;
 import pe.edu.ucsp.oms.repository.UserDao;
 
 @Controller
@@ -18,6 +19,8 @@ public class SessionController {
 
 	@Inject
 	UserDao userDao;
+	@Inject
+	AdministratorDao admiDao;
 	
 	@RequestMapping("/login.html")
 	public ModelAndView showLogin() {
@@ -33,6 +36,11 @@ public class SessionController {
 		}
 		else
 		{
+			if(admiDao.existsAdministrator(username, password)){
+				request.getSession().setAttribute("username", String.valueOf(username));
+				response.sendRedirect("homeAdministrator.html");
+			}
+			else
 			request.getSession().setAttribute("username", null);
 		}
 		
@@ -49,6 +57,11 @@ public class SessionController {
 	@RequestMapping("/home.html")
 	public ModelAndView home(HttpServletResponse response) throws IOException {
 		return new ModelAndView("home"); 
+	}
+	
+	@RequestMapping("/homeAdministrator.html")
+	public ModelAndView homeAdministrator(HttpServletResponse response) throws IOException {
+		return new ModelAndView("homeAdministrator"); 
 	}
 
 }
