@@ -20,7 +20,13 @@ public class JdbcAdministratorDao extends JdbcGenericDao<Administrator, Long> im
 
 	private final AdministratorMapper mapper = new AdministratorMapper();
 	protected PasswordEncoder encoder = new Md5PasswordEncoder();
-
+	
+	@Override
+	public boolean existsAdministrator(String username, String password) {
+		String sql = "SELECT * FROM " + getTableName() + " WHERE username = ? and password = ?";
+        return jdbcTemplate.queryForRowSet(sql, username, password).next();        
+	}
+	
 	@Override
 	public void update(final Administrator admi) {
 		String sql = "UPDATE " + getTableName() + " SET first_name = ?, last_name = ?, email = ?, username = ? WHERE id = ?";

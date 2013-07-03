@@ -9,4 +9,5 @@ public interface AdministratorDao extends GenericDao<Administrator, Long> {
 	
 	Administrator findByEmail(String email);
 	List<Administrator> filterByEmail(String email);
+	boolean existsAdministrator(String username, String password);
 }
