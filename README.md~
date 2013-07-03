@@ -8,16 +8,22 @@ Reparticion de clases:
 
   Miguel:
     Persona
-    Notificacion
+    Usuario
   Jean:
     Tarea
     Administrador
+    Logs_administrador
   Jhoel:
     Categoria
     Vale
+    Vale_Usuario
   Jeffrey:
     Superadmin
     Promocion
+    Puntuacion
   Enrique:
+    Notificacion
     Contenido
-    Usuario
+    Download
+    Payment
+
