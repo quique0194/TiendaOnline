@@ -9,6 +9,8 @@ Reparticion de clases:
   Miguel:
     Persona
     Usuario
+    Download
+    Payment
   Jean:
     Tarea
     Administrador
@@ -24,6 +26,7 @@ Reparticion de clases:
   Enrique:
     Notificacion
     Contenido
-    Download
-    Payment
+    Type_file
+    Type_content
+    
 

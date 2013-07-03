@@ -283,3 +283,14 @@ SHOW WARNINGS;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+--- Insertions
+-
+-
+-insert into Users values(1,'kike', 'kike', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
+-
+-insert into Contents values(1, 'rutaContenido1', 'contenido1', 'kike', 'contenido de prueba', 5, 18, 1, 1,1,1);
+-insert into Contents values(2, 'rutaContenido2', 'contenido2', 'kike', 'contenido de prueba', 10, 35, 1, 1,1,1);
+-
+-insert into Administrator values(1,'Admin1', 'admi1', 'Admin', 'Trator1','admi1@gmail.com');
+-insert into Administrator values(1,'Admin2', 'admi2', 'Admin', 'Trator2','admi2@gmail.com');
