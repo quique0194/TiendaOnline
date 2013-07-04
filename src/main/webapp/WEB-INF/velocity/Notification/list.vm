@@ -1,0 +1,15 @@
+<html>
+<body>
+<title>List of Notifications</title>
+#if($notifications.empty)
+	<div>No hay Notificaciones</div>
+#else
+	<ul>
+	#foreach($notification in $notifications)
+		<li><a href="${notification.id}/details.html">$notification.id</a></li>
+	#end
+	</ul>
+#end
+<a href ="add.html">Add New</a>
+</body>
+</html>

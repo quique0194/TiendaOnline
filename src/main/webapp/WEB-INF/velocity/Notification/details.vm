@@ -1,0 +1,23 @@
+<html>
+<title>Detail of Notifications</title>
+<body>
+	<a href="../list.html">Ver todos</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$notification.id<td>
+		</tr>
+		<tr>
+			<td><b>Detail:</b></td>
+			<td>$notification.detail<td>
+		</tr>
+		<tr>
+			<td><b>IdUser:</b></td>
+			<td>$notification.idUser<td>
+		</tr>
+	</table>
+	<br />
+	<a href="edit.html">Modificar</a>
+</body>
+</html>

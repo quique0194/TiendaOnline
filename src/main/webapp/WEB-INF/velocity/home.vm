@@ -9,6 +9,7 @@ WELCOME User </br></br>
     <a href="Task/list.html">Tasks</a></br>
     <a href="User/list.html">Users</a></br>
     <a href="Voucher/list.html">Vouchers</a></br>
+    <a href="Notification/list.html">Notifications</a></br>
     
 </body>
 </html>
