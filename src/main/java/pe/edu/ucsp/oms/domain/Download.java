@@ -44,9 +44,4 @@ public class Download implements BaseEntity<Long>{
 		this.idContent = idContent;
 	}
 
-
-
-
-	
-
 }
