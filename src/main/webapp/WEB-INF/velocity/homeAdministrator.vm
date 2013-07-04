@@ -2,5 +2,6 @@
 <body>
 WELCOME Administrator
 <a href="Administrator/list.html"><p>Ver lista de Administradores</p>
+<a href="Task/list.html"><p>Ver lista de Tareas</p>
 </body>
 </html>
