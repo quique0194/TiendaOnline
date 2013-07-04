@@ -1,0 +1,27 @@
+<html>
+<title>Edit a TypeFile</title>
+#set($saveUrl = "save.html")
+<form action="#if($tf.id)../#end$saveUrl" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!tf.id<input type="hidden" name="id" value="$!tf.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Extension:</b></td>
+			<td><input type="text" name="extension" value="$!tf.extension"/><td>
+		</tr>
+		<tr>
+			<td><b>Mime:</b></td>
+			<td><input type="text" name="mime" value="$!tf.mime"/><td>
+		</tr>
+		<tr>
+			<td><b>IdTypeContent:</b></td>
+			<td><input type="text" name="idTypeContent" value="$!tf.idTypeContent"/><td>
+		</tr>
+	</table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>

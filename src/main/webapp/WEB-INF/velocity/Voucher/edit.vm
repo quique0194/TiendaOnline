@@ -1,0 +1,23 @@
+<html>
+<title>Edit a Voucher</title>
+#set($saveUrl = "save.html")
+<form action="#if($voucher.id)../#end$saveUrl" method="POST">
+    <table>
+        <tr>
+            <td><b>Id:</b></td>
+            <td>$!voucher.id<input type="hidden" name="id" value="$!voucher.id" /><td>
+        </tr>
+        <tr>
+            <td><b>Points:</b></td>
+            <td><input type="text" name="Points" value="$!voucher.points"/><td>
+        </tr>
+        <tr>
+            <td><b>Discount:</b></td>
+            <td><input type="text" name="Discount" value="$!voucher.discount"/><td>
+        </tr>
+    </table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>

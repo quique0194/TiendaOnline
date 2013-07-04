@@ -1,0 +1,15 @@
+<html>
+<body>
+<title>List of TypeContents</title>
+#if($tcs.empty)
+	<div>No hay TypeContents</div>
+#else
+	<ul>
+	#foreach($tc in $tcs)
+		<li><a href="${tc.id}/details.html">$tc.typeContent</a></li>
+	#end
+	</ul>
+#end
+<a href ="add.html">Add New</a>
+</body>
+</html>

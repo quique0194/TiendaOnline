@@ -1,0 +1,23 @@
+<html>
+<title>Edit a Notification</title>
+#set($saveUrl = "save.html")
+<form action="#if($notification.id)../#end$saveUrl" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!notification.id<input type="hidden" name="id" value="$!notification.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Detail:</b></td>
+			<td><input type="text" name="detail" value="$!notification.detail"/><td>
+		</tr>
+		<tr>
+			<td><b>IdUser:</b></td>
+			<td><input type="text" name="idUser" value="$!notification.idUser"/><td>
+		</tr>
+	</table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>

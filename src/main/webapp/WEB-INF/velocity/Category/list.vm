@@ -1,4 +1,5 @@
 <html>
+<title>List of Categories</title>
 <body>
 #if($categories.empty)
 	<div>No hay Categorias</div>

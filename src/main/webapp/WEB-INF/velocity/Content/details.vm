@@ -1,4 +1,5 @@
 <html>
+<title>Detail of Contents</title>
 <body>
 	<a href="../list.html">Ver todos</a>
 	<br /><br />
@@ -6,6 +7,10 @@
 		<tr>
 			<td><b>Id:</b></td>
 			<td>$content.id<td>
+		</tr>
+		<tr>
+			<td><b>Content:</b></td>
+			<td>$content.content<td>
 		</tr>
 		<tr>
 			<td><b>Name:</b></td>
@@ -22,6 +27,26 @@
 		<tr>
 			<td><b>Precio:</b></td>
 			<td>$content.price<td>
+		</tr>
+		<tr>
+			<td><b>Size:</b></td>
+			<td>$content.size<td>
+		</tr>
+		<tr>
+			<td><b>Veces Descargado:</b></td>
+			<td>$content.timesDownload<td>
+		</tr>
+		<tr>
+			<td><b>IdCategory:</b></td>
+			<td>$content.idCategory<td>
+		</tr>
+		<tr>
+			<td><b>IdPromo:</b></td>
+			<td>$content.idPromo<td>
+		</tr>
+		<tr>
+			<td><b>IdTypeFile:</b></td>
+			<td>$content.idTypeFile<td>
 		</tr>
 	</table>
 	<br />

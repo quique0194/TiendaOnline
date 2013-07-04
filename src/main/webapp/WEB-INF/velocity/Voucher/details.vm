@@ -1,0 +1,23 @@
+<html>
+<title>Detail of Voucher</title>
+<body>
+    <a href="../list.html">Ver todos</a>
+    <br /><br />
+    <table>
+        <tr>
+            <td><b>Id:</b></td>
+            <td>$voucher.id<td>
+        </tr>
+        <tr>
+            <td><b>Points:</b></td>
+            <td>$voucher.points<td>
+        </tr>
+        <tr>
+            <td><b>Discount:</b></td>
+            <td> $voucher.discount%<td>
+        </tr>
+    </table>
+    <br />
+    <a href="edit.html">Modificar</a>
+</body>
+</html>

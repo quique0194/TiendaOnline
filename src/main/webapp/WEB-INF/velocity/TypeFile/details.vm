@@ -1,0 +1,27 @@
+<html>
+<title>Detail of TypeFiles</title>
+<body>
+	<a href="../list.html">Ver todos</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$tf.id<td>
+		</tr>
+		<tr>
+			<td><b>Extension:</b></td>
+			<td>$tf.extension<td>
+		</tr>
+		<tr>
+			<td><b>Mime:</b></td>
+			<td>$tf.mime<td>
+		</tr>
+		<tr>
+			<td><b>IdTypeContent:</b></td>
+			<td>$tf.idTypeContent<td>
+		</tr>
+	</table>
+	<br />
+	<a href="edit.html">Modificar</a>
+</body>
+</html>
