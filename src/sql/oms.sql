@@ -37,8 +37,12 @@ SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Categories` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
+  `id_father` INT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Categories` ON `Portal_Descarga`.`Categories` (`id_father` ASC) ;
 
 SHOW WARNINGS;
 
@@ -83,9 +87,11 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Type_file` (
   `extension` VARCHAR(45) NOT NULL ,
   `mime` VARCHAR(45) NOT NULL ,
   `id_typecontent` INT NOT NULL ,
-  PRIMARY KEY (`id`, `id_typecontent`) ,
-  INDEX `fk_Tipo_archivo_Tipo_contenido1_idx` (`id_typecontent` ASC) )
+  PRIMARY KEY (`id`, `id_typecontent`) )
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Tipo_archivo_Tipo_contenido1_idx` ON `Portal_Descarga`.`Type_file` (`id_typecontent` ASC) ;
 
 SHOW WARNINGS;
 
@@ -107,11 +113,17 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Contents` (
   `id_category` INT NOT NULL ,
   `id_promo` INT NOT NULL ,
   `id_typefile` INT NOT NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `fk_Contenido_Categoria1_idx` (`id_category` ASC) ,
-  INDEX `fk_Contenido_Promocion1_idx` (`id_promo` ASC) ,
-  INDEX `fk_Contenido_Tipo_archivo1_idx` (`id_typefile` ASC) )
+  PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Contenido_Categoria1_idx` ON `Portal_Descarga`.`Contents` (`id_category` ASC) ;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Contenido_Promocion1_idx` ON `Portal_Descarga`.`Contents` (`id_promo` ASC) ;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Contenido_Tipo_archivo1_idx` ON `Portal_Descarga`.`Contents` (`id_typefile` ASC) ;
 
 SHOW WARNINGS;
 
@@ -124,9 +136,11 @@ SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Payments` (
   `id_user` INT NOT NULL ,
   `id_content` INT NOT NULL ,
-  PRIMARY KEY (`id_user`, `id_content`) ,
-  INDEX `fk_Pagos_Contenido1_idx` (`id_content` ASC) )
+  PRIMARY KEY (`id_user`, `id_content`) )
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Pagos_Contenido1_idx` ON `Portal_Descarga`.`Payments` (`id_content` ASC) ;
 
 SHOW WARNINGS;
 
@@ -141,10 +155,14 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Downloads` (
   `date` DATE NOT NULL ,
   `id_content` INT NOT NULL ,
   `id_user` INT NOT NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `fk_Descarga_Contenido1_idx` (`id_content` ASC) ,
-  INDEX `fk_Descarga_Usuario1_idx` (`id_user` ASC) )
+  PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Descarga_Contenido1_idx` ON `Portal_Descarga`.`Downloads` (`id_content` ASC) ;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Descarga_Usuario1_idx` ON `Portal_Descarga`.`Downloads` (`id_user` ASC) ;
 
 SHOW WARNINGS;
 
@@ -158,10 +176,14 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Puntuations` (
   `val` INT NOT NULL ,
   `id_content` INT NOT NULL ,
   `id_user` INT NOT NULL ,
-  PRIMARY KEY (`id_content`, `id_user`) ,
-  INDEX `fk_Puntuacion_Contenido1_idx` (`id_content` ASC) ,
-  INDEX `fk_Puntuacion_Usuario1_idx` (`id_user` ASC) )
+  PRIMARY KEY (`id_content`, `id_user`) )
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Puntuacion_Contenido1_idx` ON `Portal_Descarga`.`Puntuations` (`id_content` ASC) ;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Puntuacion_Usuario1_idx` ON `Portal_Descarga`.`Puntuations` (`id_user` ASC) ;
 
 SHOW WARNINGS;
 
@@ -175,9 +197,11 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Notifications` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `detail` VARCHAR(256) NOT NULL ,
   `id_user` INT NOT NULL ,
-  PRIMARY KEY (`id`, `id_user`) ,
-  INDEX `fk_Notificacion_Usuario1_idx` (`id_user` ASC) )
+  PRIMARY KEY (`id`, `id_user`) )
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Notificacion_Usuario1_idx` ON `Portal_Descarga`.`Notifications` (`id_user` ASC) ;
 
 SHOW WARNINGS;
 
@@ -189,7 +213,7 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Vouchers` ;
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Vouchers` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `points` VARCHAR(45) NOT NULL ,
+  `points` INT NOT NULL ,
   `discount` TINYINT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
@@ -205,9 +229,11 @@ SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Voucher_user` (
   `id_voucher` INT NOT NULL ,
   `id_user` INT NOT NULL ,
-  PRIMARY KEY (`id_voucher`, `id_user`) ,
-  INDEX `fk_Vale_Usuario_Usuario1_idx` (`id_user` ASC) )
+  PRIMARY KEY (`id_voucher`, `id_user`) )
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Vale_Usuario_Usuario1_idx` ON `Portal_Descarga`.`Voucher_user` (`id_user` ASC) ;
 
 SHOW WARNINGS;
 
@@ -254,10 +280,14 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Logs_administrator` (
   `detail` VARCHAR(256) NOT NULL ,
   `id_administrator` INT NOT NULL ,
   `id_task` INT NOT NULL ,
-  PRIMARY KEY (`date`) ,
-  INDEX `fk_Log_administrador_Administrador1_idx` (`id_administrator` ASC) ,
-  INDEX `fk_Log_administrador_Tarea1_idx` (`id_task` ASC) )
+  PRIMARY KEY (`date`) )
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Log_administrador_Administrador1_idx` ON `Portal_Descarga`.`Logs_administrator` (`id_administrator` ASC) ;
+
+SHOW WARNINGS;
+CREATE INDEX `fk_Log_administrador_Tarea1_idx` ON `Portal_Descarga`.`Logs_administrator` (`id_task` ASC) ;
 
 SHOW WARNINGS;
 
@@ -285,12 +315,10 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 --- Insertions
--
--
--insert into Users values(1,'kike', 'kike', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
--
--insert into Contents values(1, 'rutaContenido1', 'contenido1', 'kike', 'contenido de prueba', 5, 18, 1, 1,1,1);
--insert into Contents values(2, 'rutaContenido2', 'contenido2', 'kike', 'contenido de prueba', 10, 35, 1, 1,1,1);
--
--insert into Administrator values(1,'Admin1', 'admi1', 'Admin', 'Trator1','admi1@gmail.com');
--insert into Administrator values(1,'Admin2', 'admi2', 'Admin', 'Trator2','admi2@gmail.com');
+
+insert into Users values(1,'kike', 'kike', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
+insert into Users values(NULL,'mbustamante', '123456', 'Miguel Angel', 'Bustamante Cayo','miguel@gmail.com', 1, 100, 15 );
+insert into Contents values(1, 'rutaContenido1', 'contenido1', 'kike', 'contenido de prueba', 5, 18, 1, 1,1,1);
+insert into Contents values(2, 'rutaContenido2', 'contenido2', 'kike', 'contenido de prueba', 10, 35, 1, 1,1,1);
+insert into Administrator values(1,'Admin1', 'admi1', 'Admin', 'Trator1','admi1@gmail.com');
+insert into Administrator values(2,'Admin2', 'admi2', 'Admin', 'Trator2','admi2@gmail.com');

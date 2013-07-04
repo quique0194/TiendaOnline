@@ -15,7 +15,7 @@ import pe.edu.ucsp.oms.domain.User;
 import pe.edu.ucsp.oms.repository.UserDao;
 
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/user")
 public class UserController {
 
 	@Inject
