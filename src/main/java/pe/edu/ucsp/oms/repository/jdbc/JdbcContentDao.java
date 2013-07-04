@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.ucsp.oms.domain.Category;
 import pe.edu.ucsp.oms.domain.Content;
-import pe.edu.ucsp.oms.domain.MediaType;
 import pe.edu.ucsp.oms.domain.Promo;
 import pe.edu.ucsp.oms.repository.ContentDao;
 
@@ -53,7 +52,7 @@ public class JdbcContentDao extends JdbcGenericDao<Content, Long> implements Con
 			content.setTimesDownload(rs.getInt("times_download"));
 			content.setCategory(new Category());
 			content.setPromo(new Promo());
-			content.setMediaType(new MediaType());
+			content.setIdTypefile(rs.getInt("id_typefile"));
 			content.setContent(rs.getString("content"));
 			return content;
 		}

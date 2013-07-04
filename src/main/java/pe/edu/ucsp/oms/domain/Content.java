@@ -19,7 +19,7 @@ public class Content implements BaseEntity<Long>{
 	private int timesDownload;
 	private Category category;
 	private Promo promo;	
-	private MediaType mediaType;	
+	private int idTypefile;	
 	
 
 	@Override
@@ -109,13 +109,6 @@ public class Content implements BaseEntity<Long>{
 		this.timesDownload = timesDownload;
 	}
 
-	public MediaType getMediaType() {
-		return mediaType;
-	}
-
-	public void setMediaType(MediaType mediaType) {
-		this.mediaType = mediaType;
-	}
 
 	public String getContent() {
 		return content;
@@ -123,6 +116,14 @@ public class Content implements BaseEntity<Long>{
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public int getIdTypefile() {
+		return idTypefile;
+	}
+
+	public void setIdTypefile(int idTypefile) {
+		this.idTypefile = idTypefile;
 	}
 	
 }
