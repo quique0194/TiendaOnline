@@ -322,3 +322,6 @@ insert into Contents values(1, 'rutaContenido1', 'contenido1', 'kike', 'contenid
 insert into Contents values(2, 'rutaContenido2', 'contenido2', 'kike', 'contenido de prueba', 10, 35, 1, 1,1,1);
 insert into Administrator values(1,'Admin1', 'admi1', 'Admin', 'Trator1','admi1@gmail.com');
 insert into Administrator values(2,'Admin2', 'admi2', 'Admin', 'Trator2','admi2@gmail.com');
+insert into Tasks  VALUES ('Aumentar saldo');
+insert into Tasks  VALUES ('Cerrar cuenta');
+insert into Tasks  VALUES ('Crear promoción');

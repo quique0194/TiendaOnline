@@ -63,5 +63,10 @@ public class SessionController {
 	public ModelAndView homeAdministrator(HttpServletResponse response) throws IOException {
 		return new ModelAndView("homeAdministrator"); 
 	}
+	
+	@RequestMapping("/Task.html")
+	public ModelAndView task(HttpServletResponse response) throws IOException {
+		return new ModelAndView("Task"); 
+	}
 
 }
