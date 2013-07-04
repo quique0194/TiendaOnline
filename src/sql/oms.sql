@@ -86,8 +86,8 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Type_file` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `extension` VARCHAR(45) NOT NULL ,
   `mime` VARCHAR(45) NOT NULL ,
-  `id_typecontent` INT NOT NULL ,
-  PRIMARY KEY (`id`, `id_typecontent`) )
+  `id_type_content` INT NOT NULL ,
+  PRIMARY KEY (`id`, `id_type_content`) )
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -123,7 +123,7 @@ SHOW WARNINGS;
 CREATE INDEX `fk_Contenido_Promocion1_idx` ON `Portal_Descarga`.`Contents` (`id_promo` ASC) ;
 
 SHOW WARNINGS;
-CREATE INDEX `fk_Contenido_Tipo_archivo1_idx` ON `Portal_Descarga`.`Contents` (`id_typefile` ASC) ;
+CREATE INDEX `fk_Contenido_Tipo_archivo1_idx` ON `Portal_Descarga`.`Contents` (`id_type_file` ASC) ;
 
 SHOW WARNINGS;
 
@@ -314,7 +314,7 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
---- Insertions
+-- Insertions
 
 insert into Users values(null,'kike', 'kike', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
 insert into Users values(NULL,'mbustamante', '123456', 'Miguel Angel', 'Bustamante Cayo','miguel@gmail.com', 1, 100, 15 );
@@ -322,6 +322,7 @@ insert into Contents values(1, 'rutaContenido1', 'contenido1', 'kike', 'contenid
 insert into Contents values(2, 'rutaContenido2', 'contenido2', 'kike', 'contenido de prueba', 10, 35, 1, 1,1,1);
 insert into Administrator values(1,'Admin1', 'admi1', 'Admin', 'Trator1','admi1@gmail.com');
 insert into Administrator values(2,'Admin2', 'admi2', 'Admin', 'Trator2','admi2@gmail.com');
-insert into Tasks  VALUES ('Aumentar saldo');
-insert into Tasks  VALUES ('Cerrar cuenta');
-insert into Tasks  VALUES ('Crear promoción');
+insert into Tasks  VALUES (null, 'Aumentar saldo');
+insert into Tasks  VALUES (null, 'Cerrar cuenta');
+insert into Tasks  VALUES (null, 'Crear promoción');
+insert into Type_file values(null,'jpg','mime',1);

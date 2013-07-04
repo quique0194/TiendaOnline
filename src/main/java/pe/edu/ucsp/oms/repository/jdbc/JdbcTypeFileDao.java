@@ -18,9 +18,9 @@ public class JdbcTypeFileDao extends JdbcGenericDao<TypeFile, Long> implements T
 	@Override
 	public void update(TypeFile tf) {
 		String sql = "UPDATE " + getTableName() + " SET extension=?," +
-				"mime=?, id_typecontent=? WHERE id=?";
+				"mime=?, id_type_content=? WHERE id=?";
 		jdbcTemplate.update(sql, tf.getExtension(),
-				tf.getMime(),tf.getIdTypecontent(), tf.getId());
+				tf.getMime(),tf.getIdTypeContent(), tf.getId());
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class JdbcTypeFileDao extends JdbcGenericDao<TypeFile, Long> implements T
 			tf.setId(rs.getLong("id"));
 			tf.setExtension(rs.getString("extension"));
 			tf.setMime(rs.getString("mime"));
-			tf.setIdTypecontent(rs.getLong("id_typecontent"));
+			tf.setIdTypeContent(rs.getLong("id_type_content"));
 			return tf;
 		}
 		

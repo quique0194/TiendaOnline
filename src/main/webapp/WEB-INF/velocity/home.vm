@@ -10,6 +10,8 @@ WELCOME User </br></br>
     <a href="User/list.html">Users</a></br>
     <a href="Voucher/list.html">Vouchers</a></br>
     <a href="Notification/list.html">Notifications</a></br>
+    <a href="TypeContent/list.html">TypeContents</a></br>
+    <a href="TypeFile/list.html">TypeFiles</a></br>
     
 </body>
 </html>

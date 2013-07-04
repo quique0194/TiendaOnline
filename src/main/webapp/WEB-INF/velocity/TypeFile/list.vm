@@ -1,0 +1,15 @@
+<html>
+<body>
+<title>List of TypeFiles</title>
+#if($tfs.empty)
+	<div>No hay TypeFiles</div>
+#else
+	<ul>
+	#foreach($tf in $tfs)
+		<li><a href="${tf.id}/details.html">$tf.extension</a></li>
+	#end
+	</ul>
+#end
+<a href ="add.html">Add New</a>
+</body>
+</html>
