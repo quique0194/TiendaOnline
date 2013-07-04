@@ -13,14 +13,14 @@ public class Category implements BaseEntity<Long> {
 
 	private String name;
 
-	private Long idParent;
+	private Long idFather;
 	
-	public Long getIdParent(){
-		return idParent;
+	public Long getIdFather(){
+		return idFather;
 	}
 	
-	public void setIdParent(Long idParent){
-		this.idParent = idParent;
+	public void setIdFather(Long idFather){
+		this.idFather = idFather;
 	}
 	
 	public void setName(String name) {
