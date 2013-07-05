@@ -6,8 +6,8 @@ import pe.edu.ucsp.oms.domain.SuperAdministrator;
 
 public interface SuperAdministratorDao extends GenericDao<SuperAdministrator, Long> {
 	
-	SuperAdministrator findByUser(String user);
-	List<SuperAdministrator> filterByUser(String user);
+	SuperAdministrator findByUsername(String username);
+	List<SuperAdministrator> filterByUsername(String username);
 	boolean existsSuperAdministrator(String username, String password);
 	
 }
