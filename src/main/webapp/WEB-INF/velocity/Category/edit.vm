@@ -1,0 +1,23 @@
+<html>
+<title>Edit a Category</title>
+#set($saveUrl = "save.html")
+<form action="#if($voucher.id)../#end$saveUrl" method="POST">
+    <table>
+        <tr>
+            <td><b>Id:</b></td>
+            <td>$!category.id<input type="hidden" name="id" value="$!category.id" /><td>
+        </tr>
+        <tr>
+            <td><b>Name:</b></td>
+            <td><input type="text" name="Name" value="$!category.name"/><td>
+        </tr>
+        <tr>
+            <td><b>Pertenece a la Categoria:</b></td>
+            <td><input type="text" name="idFather" value="$!category.idFather"/><td>
+        </tr>
+    </table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>
