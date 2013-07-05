@@ -37,12 +37,10 @@ SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Categories` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
-  `id_father` INT NOT NULL ,
-  PRIMARY KEY (`id`) )
+  `id_father` INT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_Categories_1` (`id_father` ASC) )
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Categories` ON `Portal_Descarga`.`Categories` (`id_father` ASC) ;
 
 SHOW WARNINGS;
 
@@ -87,11 +85,9 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Type_file` (
   `extension` VARCHAR(45) NOT NULL ,
   `mime` VARCHAR(45) NOT NULL ,
   `id_type_content` INT NOT NULL ,
-  PRIMARY KEY (`id`, `id_type_content`) )
+  PRIMARY KEY (`id`, `id_type_content`) ,
+  INDEX `fk_Tipo_archivo_Tipo_contenido1_idx` (`id_type_content` ASC) )
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Tipo_archivo_Tipo_contenido1_idx` ON `Portal_Descarga`.`Type_file` (`id_type_content` ASC) ;
 
 SHOW WARNINGS;
 
@@ -113,17 +109,11 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Contents` (
   `id_category` INT NOT NULL ,
   `id_promo` INT NOT NULL ,
   `id_type_file` INT NOT NULL ,
-  PRIMARY KEY (`id`) )
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_Contenido_Categoria1_idx` (`id_category` ASC) ,
+  INDEX `fk_Contenido_Promocion1_idx` (`id_promo` ASC) ,
+  INDEX `fk_Contenido_Tipo_archivo1_idx` (`id_type_file` ASC) )
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Contenido_Categoria1_idx` ON `Portal_Descarga`.`Contents` (`id_category` ASC) ;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Contenido_Promocion1_idx` ON `Portal_Descarga`.`Contents` (`id_promo` ASC) ;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Contenido_Tipo_archivo1_idx` ON `Portal_Descarga`.`Contents` (`id_type_file` ASC) ;
 
 SHOW WARNINGS;
 
@@ -136,11 +126,9 @@ SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Payments` (
   `id_user` INT NOT NULL ,
   `id_content` INT NOT NULL ,
-  PRIMARY KEY (`id_user`, `id_content`) )
+  PRIMARY KEY (`id_user`, `id_content`) ,
+  INDEX `fk_Pagos_Contenido1_idx` (`id_content` ASC) )
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Pagos_Contenido1_idx` ON `Portal_Descarga`.`Payments` (`id_content` ASC) ;
 
 SHOW WARNINGS;
 
@@ -155,14 +143,10 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Downloads` (
   `date` DATE NOT NULL ,
   `id_content` INT NOT NULL ,
   `id_user` INT NOT NULL ,
-  PRIMARY KEY (`id`) )
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_Descarga_Contenido1_idx` (`id_content` ASC) ,
+  INDEX `fk_Descarga_Usuario1_idx` (`id_user` ASC) )
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Descarga_Contenido1_idx` ON `Portal_Descarga`.`Downloads` (`id_content` ASC) ;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Descarga_Usuario1_idx` ON `Portal_Descarga`.`Downloads` (`id_user` ASC) ;
 
 SHOW WARNINGS;
 
@@ -176,14 +160,10 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Puntuations` (
   `val` INT NOT NULL ,
   `id_content` INT NOT NULL ,
   `id_user` INT NOT NULL ,
-  PRIMARY KEY (`id_content`, `id_user`) )
+  PRIMARY KEY (`id_content`, `id_user`) ,
+  INDEX `fk_Puntuacion_Contenido1_idx` (`id_content` ASC) ,
+  INDEX `fk_Puntuacion_Usuario1_idx` (`id_user` ASC) )
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Puntuacion_Contenido1_idx` ON `Portal_Descarga`.`Puntuations` (`id_content` ASC) ;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Puntuacion_Usuario1_idx` ON `Portal_Descarga`.`Puntuations` (`id_user` ASC) ;
 
 SHOW WARNINGS;
 
@@ -197,11 +177,9 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Notifications` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `detail` VARCHAR(256) NOT NULL ,
   `id_user` INT NOT NULL ,
-  PRIMARY KEY (`id`, `id_user`) )
+  PRIMARY KEY (`id`, `id_user`) ,
+  INDEX `fk_Notificacion_Usuario1_idx` (`id_user` ASC) )
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Notificacion_Usuario1_idx` ON `Portal_Descarga`.`Notifications` (`id_user` ASC) ;
 
 SHOW WARNINGS;
 
@@ -229,11 +207,10 @@ SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Voucher_user` (
   `id_voucher` INT NOT NULL ,
   `id_user` INT NOT NULL ,
-  PRIMARY KEY (`id_voucher`, `id_user`) )
+  `count` INT NULL ,
+  PRIMARY KEY (`id_voucher`, `id_user`) ,
+  INDEX `fk_Vale_Usuario_Usuario1_idx` (`id_user` ASC) )
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Vale_Usuario_Usuario1_idx` ON `Portal_Descarga`.`Voucher_user` (`id_user` ASC) ;
 
 SHOW WARNINGS;
 
@@ -276,18 +253,14 @@ DROP TABLE IF EXISTS `Portal_Descarga`.`Logs_administrator` ;
 
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Logs_administrator` (
-  `date` DATE NOT NULL ,
+  `date` DATETIME NOT NULL ,
   `detail` VARCHAR(256) NOT NULL ,
   `id_administrator` INT NOT NULL ,
   `id_task` INT NOT NULL ,
-  PRIMARY KEY (`date`) )
+  PRIMARY KEY (`date`, `id_task`, `id_administrator`) ,
+  INDEX `fk_Log_administrador_Administrador1_idx` (`id_administrator` ASC) ,
+  INDEX `fk_Log_administrador_Tarea1_idx` (`id_task` ASC) )
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Log_administrador_Administrador1_idx` ON `Portal_Descarga`.`Logs_administrator` (`id_administrator` ASC) ;
-
-SHOW WARNINGS;
-CREATE INDEX `fk_Log_administrador_Tarea1_idx` ON `Portal_Descarga`.`Logs_administrator` (`id_task` ASC) ;
 
 SHOW WARNINGS;
 
@@ -315,17 +288,29 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
+
 -- Insertions
 
 insert into Users values(null,'kike', 'kike', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
 insert into Users values(NULL,'mbustamante', '123456', 'Miguel Angel', 'Bustamante Cayo','miguel@gmail.com', 1, 100, 15 );
 insert into Contents values(1, 'rutaContenido1', 'contenido1', 'kike', 'contenido de prueba', 5, 18, 1, 1,1,1);
 insert into Contents values(2, 'rutaContenido2', 'contenido2', 'kike', 'contenido de prueba', 10, 35, 1, 1,1,1);
-insert into Administrator values(1,'Admin1', 'admi1', 'Admin', 'Trator1','admi1@gmail.com');
-insert into Administrator values(2,'Admin2', 'admi2', 'Admin', 'Trator2','admi2@gmail.com');
-insert into Tasks  VALUES (null, 'Aumentar saldo');
-insert into Tasks  VALUES (null, 'Cerrar cuenta');
-insert into Tasks  VALUES (null, 'Crear promoción');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi3', 'admi3', 'admi3', 'admi3','admi3@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi4', 'admi4', 'admi4', 'admi4','admi4@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi5', 'admi5', 'admi5', 'admi5','admi5@gmail.com');
+insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task1');
+insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task2');
+insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task3');
+insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task4');
+insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task5');
+INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091529', 'detail2', 3, 5);
+INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091530', 'detail3', 2, 1);
+INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091531', 'detail5', 1, 2);
+INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091532', 'detail4', 5, 4);
+INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091529', 'detail2', 3, 5);
+
 insert into Type_file values(null,'jpg','mime',1);
 
 INSERT INTO `Portal_Descarga`.`Categories` (`id`, `name`, `id_father`) VALUES (1, 'Todo el Contenido', 1);

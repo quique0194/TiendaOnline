@@ -6,7 +6,6 @@ public class Download implements BaseEntity<Long>{
 	private static final long serialVersionUID = 1L;
 	public final static String TABLE_NAME = "Downloads";
 
-	
 	private Long id;
 	private String date;
 	private Long idUser;
