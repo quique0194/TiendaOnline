@@ -91,7 +91,7 @@ CREATE  TABLE IF NOT EXISTS `Portal_Descarga`.`Type_file` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-CREATE INDEX `fk_Tipo_archivo_Tipo_contenido1_idx` ON `Portal_Descarga`.`Type_file` (`id_typecontent` ASC) ;
+CREATE INDEX `fk_Tipo_archivo_Tipo_contenido1_idx` ON `Portal_Descarga`.`Type_file` (`id_type_content` ASC) ;
 
 SHOW WARNINGS;
 
@@ -313,6 +313,7 @@ SHOW WARNINGS;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 -- Insertions
 

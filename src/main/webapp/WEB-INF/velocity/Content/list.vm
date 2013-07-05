@@ -1,7 +1,7 @@
 <html>
 <body>
 <title>List of Contents</title>
-#if($users.empty)
+#if($contents.empty)
 	<div>No hay Productos</div>
 #else
 	<ul>
