@@ -1,5 +1,6 @@
 package pe.edu.ucsp.oms.controller;
 
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import pe.edu.ucsp.oms.domain.Administrator;
+
 import pe.edu.ucsp.oms.repository.AdministratorDao;
 
 
@@ -21,6 +23,8 @@ public class AdministratorController {
 
 	@Inject
 	AdministratorDao admiDao;
+	
+
 
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
@@ -63,4 +67,6 @@ public class AdministratorController {
 		}
 		return list();
 	}
+	
+	
 }

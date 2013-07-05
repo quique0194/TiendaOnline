@@ -53,6 +53,8 @@ public class VoucherController {
 	@RequestMapping(value = "/save.html" , method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("voucher") Voucher voucher, BindingResult result, SessionStatus status){
 		if(voucher.getId() == null){
+			System.out.println("Esta creando un nuevo voucher");
+			System.out.println(voucher.getPoints() + " " +voucher.getDiscount());
 			voucherDao.save(voucher);
 			status.setComplete();
 		}

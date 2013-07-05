@@ -58,22 +58,7 @@ public class ContentController {
 		return view;
 	}
 	
-	@RequestMapping("/administrar.html")
-	public ModelAndView administrar(){
-		ModelAndView view = new ModelAndView();
-		view.addObject("contents", contentDao.findAll());
-		view.setViewName("Content/administrar");
-		return view;
-	}
-
-	
-	@RequestMapping("/{id}/delete.html")
-	public String delete(@PathVariable Long id){
-		contentDao.removeById(id);
-		return "redirect:../administrar.html";
-	}
-	
-	
+			
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("content") Content content, BindingResult result, SessionStatus status) {
 		if (content.getId() == null) {
@@ -85,7 +70,7 @@ public class ContentController {
 			contentDao.update(content);
 			status.setComplete();
 		}
-		return administrar();
+		return list();
 	}
 	
 }
