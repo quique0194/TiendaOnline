@@ -1,5 +1,6 @@
 <html>
 <body>
+<title>List of Contents</title>
 #if($users.empty)
 	<div>No hay Productos</div>
 #else
@@ -9,5 +10,6 @@
 	#end
 	</ul>
 #end
+<a href ="add.html">Add New</a>
 </body>
 </html>

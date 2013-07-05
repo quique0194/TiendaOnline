@@ -1,0 +1,19 @@
+<html>
+<title>Detail of TypeContents</title>
+<body>
+	<a href="../list.html">Ver todos</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$tc.id<td>
+		</tr>
+		<tr>
+			<td><b>TypeContent:</b></td>
+			<td>$tc.typeContent<td>
+		</tr>
+	</table>
+	<br />
+	<a href="edit.html">Modificar</a>
+</body>
+</html>

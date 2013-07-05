@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import pe.edu.ucsp.oms.domain.Category;
-import pe.edu.ucsp.oms.domain.User;
 
 import pe.edu.ucsp.oms.repository.CategoryDao;
 
@@ -31,7 +30,7 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 	
 	@Override
 	public Category findParent(Long id) {
-	    String sql = "SELECT * FROM Categories WHERE id = (select parent from Categories  where id = ?)";
+	    String sql = "SELECT * FROM Categories WHERE id = (select id_father from Categories  where id = ?)";
         return jdbcTemplate.queryForObject(sql, getRowMapper(), id);
 	}
 
@@ -50,7 +49,7 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 			Category category = new Category();
 			category.setId(rs.getLong("id"));
 			category.setName(rs.getString("name"));
-			category.setIdParent(rs.getLong("parent"));
+			category.setIdFather(rs.getLong("id_father"));
 			return category;
 		}
 	}
@@ -66,7 +65,5 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }

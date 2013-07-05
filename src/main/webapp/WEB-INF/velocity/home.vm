@@ -1,5 +1,17 @@
 <html>
 <body>
-WELCOME User
-</bdy>
+<title>Home Store</title>
+WELCOME User </br></br>
+
+    <a href="Administrator/list.html">Administrators</a></br>
+    <a href="Category/list.html">Categories</a></br>
+    <a href="Content/list.html">Contents</a></br>
+    <a href="Task/list.html">Tasks</a></br>
+    <a href="User/list.html">Users</a></br>
+    <a href="Voucher/list.html">Vouchers</a></br>
+    <a href="Notification/list.html">Notifications</a></br>
+    <a href="TypeContent/list.html">TypeContents</a></br>
+    <a href="TypeFile/list.html">TypeFiles</a></br>
+    
+</body>
 </html>

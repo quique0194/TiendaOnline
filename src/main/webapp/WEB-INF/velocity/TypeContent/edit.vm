@@ -1,0 +1,19 @@
+<html>
+<title>Edit a TypeContent</title>
+#set($saveUrl = "save.html")
+<form action="#if($tc.id)../#end$saveUrl" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!tc.id<input type="hidden" name="id" value="$!tc.id" /><td>
+		</tr>
+		<tr>
+			<td><b>TypeContent:</b></td>
+			<td><input type="text" name="typeContent" value="$!tc.typeContent"/><td>
+		</tr>
+	</table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>

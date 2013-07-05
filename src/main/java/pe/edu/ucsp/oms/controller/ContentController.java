@@ -61,9 +61,6 @@ public class ContentController {
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("content") Content content, BindingResult result, SessionStatus status) {
 		if (content.getId() == null) {
-			content.setSize(0);
-			content.setTimesDownload(0);
-			content.setContent("rutaContent");
 			contentDao.save(content);
 			status.setComplete();
 		}

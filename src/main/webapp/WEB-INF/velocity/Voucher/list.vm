@@ -1,0 +1,16 @@
+<html>
+<body>
+<title>List of Vouchers</title>
+List of Vouchers - Necesary Points
+#if($vouchers.empty)
+    <div>No hay vouchers</div>
+#else
+    <ul>
+    #foreach($voucher in $vouchers)
+        <li><a href="${voucher.id}/details.html">$voucher.points</a></li>
+    #end
+    </ul>
+#end
+<a href ="add.html">Add New</a>
+</body>
+</html>
