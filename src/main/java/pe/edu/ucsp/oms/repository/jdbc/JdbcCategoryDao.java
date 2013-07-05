@@ -6,9 +6,12 @@ import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import pe.edu.ucsp.oms.domain.Category;
+import pe.edu.ucsp.oms.domain.User;
 
 import pe.edu.ucsp.oms.repository.CategoryDao;
 
@@ -17,9 +20,12 @@ import pe.edu.ucsp.oms.repository.CategoryDao;
 public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements CategoryDao {
 
 	private final CategoryMapper mapper = new CategoryMapper();
+	protected PasswordEncoder encoder = new Md5PasswordEncoder();
 	
 	@Override
 	public void update(Category category) {
+		String sql = "UPDATE " + getTableName() + " SET name = ? , id_father = ? WHERE id = ? ";
+		jdbcTemplate.update(sql, category.getName() , category.getIdFather() , category.getId());
 	}
 
 	@Override
@@ -34,6 +40,7 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
         return jdbcTemplate.queryForObject(sql, getRowMapper(), id);
 	}
 
+	
 	@Override
 	protected RowMapper<Category> getRowMapper() {
 		return mapper;
