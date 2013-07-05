@@ -32,9 +32,14 @@ public class JdbcLogsAdministrator extends JdbcGenericDao<LogAdministrator, Long
 
 	@Override
 	public List<Administrator> filterByAdministrator(int id_admi) {
-		String sql = "SELECT * FROM " + getTableName() + " WHERE id_admi =id_admi";
+		return null;
+		/*SELECT admi.username , task.date, task.detail
+		FROM Administrator AS admi, Logs_administrator AS task
+		WHERE admi.id= task.id_administrator and admi.id=2;*/
+
+		/*String sql = "SELECT * FROM " + getTableName() + " WHERE id_admi =id_admi";
 	    SqlParameterSource namedParameters = new MapSqlParameterSource("id_admi", id_admi);
-	    return jdbcTemplate.query(sql, getRowMapper(), namedParameters);
+	    return jdbcTemplate.query(sql, getRowMapper(), namedParameters);*/
 	}
 
 	@Override
