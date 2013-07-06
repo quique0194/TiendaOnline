@@ -39,8 +39,8 @@ public class JdbcPromoDao extends JdbcGenericDao<Promo, Long> implements PromoDa
 		public Promo mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Promo promo = new Promo();
 			promo.setId(rs.getLong("id"));
-			promo.setStartDate(rs.getString("startDate"));
-			promo.setEndDate(rs.getString("endDate"));
+			promo.setStartDate(rs.getString("start_date"));
+			promo.setEndDate(rs.getString("end_date"));
 			promo.setPercent(rs.getInt("percent"));
 			return promo;
 		}

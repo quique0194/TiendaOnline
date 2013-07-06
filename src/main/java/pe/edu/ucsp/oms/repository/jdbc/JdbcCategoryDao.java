@@ -3,6 +3,7 @@ package pe.edu.ucsp.oms.repository.jdbc;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
@@ -67,11 +68,17 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 		return null;
 	}
 
-	@Override
-	public List<Category> filterByParent(String parent) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Category> filterByParent(Category parent)
+	{
+		return filterByIdParent(parent.getId());
 	}
+	
+	public List<Category> filterByIdParent(Long idFather)
+	{
+		String sql = "SELECT * FROM " + getTableName() + " WHERE id_father= ?";
+		return jdbcTemplate.query(sql, getRowMapper(), idFather);
+	}
+	
 	
 	public List<Category> findParents(Long id){
 		List<Category> ls = new ArrayList<Category>();
@@ -85,10 +92,13 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 	}
 	
 	public void deleteCategory(Long id) {
-		String sql = "DELETE FROM " + getTableName() + " WHERE id = ? ";
-		jdbcTemplate.update(sql, id);
-		sql = "DELETE FROM " + getTableName() + " WHERE id_father = ? ";
-		jdbcTemplate.update(sql, id);
+		removeById(id);
+		List<Category> sons = filterByIdParent(id);
+		Iterator<Category> it=sons.iterator();
+        while(it.hasNext())
+        {
+          deleteCategory(it.next().getId());
+        }	
 	}
 	
 

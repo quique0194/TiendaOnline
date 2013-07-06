@@ -1,12 +1,13 @@
 <html>
+<body>
 <title>Edit a Content</title>
+<h1>#if($content.id)$content.name #else New Content #end</h1>
+<a href=#if($content.id) "details.html" #else "administrate.html" #end>Cancel...</a>
+<hr>
 #set($saveUrl = "save.html")
 <form action="#if($content.id)../#end$saveUrl" method="POST">
 	<table>
-		<tr>
-			<td><b>Id:</b></td>
-			<td>$!content.id<input type="hidden" name="id" value="$!content.id" /><td>
-		</tr>
+		<td>$!content.id<input type="hidden" name="id" value="$!content.id" /><td>
 		<tr>
 			<td><b>Content:</b></td>
 			<td><input type="text" name="content" value="$!content.content"/><td>
@@ -58,4 +59,6 @@
   <br>
   <input type="submit" value="Guardar"/>
 </form>
+<hr><a href="/TiendaOnline/homeAdministrator.html"><button>Home</button></a>
+</body>
 </html>
