@@ -2,8 +2,6 @@ package pe.edu.ucsp.oms.repository.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -41,16 +39,9 @@ public class JdbcSuperAdministratorDao extends JdbcGenericDao<SuperAdministrator
 	
 	@Override
 	public SuperAdministrator findByUsername(String username) {
-    String sql = "SELECT * FROM " + getTableName() + " WHERE username = :username";
+    String sql = "SELECT * FROM " + getTableName() + " WHERE username = ?";
     SqlParameterSource namedParameters = new MapSqlParameterSource("username", username);
     return jdbcTemplate.queryForObject(sql, getRowMapper(), namedParameters);
-	}
-	
-	@Override
-	public List<SuperAdministrator> filterByUsername(String username) {
-    String sql = "SELECT * FROM " + getTableName() + " WHERE username LIKE :username";
-    SqlParameterSource namedParameters = new MapSqlParameterSource("username", username);
-    return jdbcTemplate.query(sql, getRowMapper(), namedParameters);
 	}
 	
 	@Override

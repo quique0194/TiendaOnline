@@ -295,11 +295,11 @@ insert into Users values(null,'kike', 'kike', 'Jose Enrique', 'Carrillo Pino','q
 insert into Users values(NULL,'mbustamante', '123456', 'Miguel Angel', 'Bustamante Cayo','miguel@gmail.com', 1, 100, 15 );
 insert into Contents values(1, 'rutaContenido1', 'contenido1', 'kike', 'contenido de prueba', 5, 18, 1, 1,1,1);
 insert into Contents values(2, 'rutaContenido2', 'contenido2', 'kike', 'contenido de prueba', 10, 35, 1, 1,1,1);
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi3', 'admi3', 'admi3', 'admi3','admi3@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi4', 'admi4', 'admi4', 'admi4','admi4@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`) values('admi5', 'admi5', 'admi5', 'admi5','admi5@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`)values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`) values('admi3', 'admi3', 'admi3', 'admi3','admi3@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`) values('admi4', 'admi4', 'admi4', 'admi4','admi4@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`) values('admi5', 'admi5', 'admi5', 'admi5','admi5@gmail.com');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task1');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task2');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task3');
@@ -309,7 +309,7 @@ INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_admini
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091530', 'detail3', 2, 1);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091531', 'detail5', 1, 2);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091532', 'detail4', 5, 4);
-INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091529', 'detail2', 3, 5);
+INSERT INTO `Portal_Descarga`.`SuperAdministrator` ( `username`, `password`, `first_name`, `last_name`, `email`) VALUES ('Great_Kaiosama', '123456', 'Kaio', 'Sama', 'kaio_sama@god');
 
 insert into Type_file values(null,'jpg','mime',1);
 
