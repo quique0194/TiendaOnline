@@ -1,6 +1,7 @@
 package pe.edu.ucsp.oms.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,22 +15,26 @@ import org.springframework.web.servlet.ModelAndView;
 import pe.edu.ucsp.oms.domain.User;
 import pe.edu.ucsp.oms.repository.UserDao;
 
+
 @Controller
 @RequestMapping("/User")
 public class UserController {
 
 	@Inject
 	UserDao userDao;
+	User user;
+	
 
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
 		return new ModelAndView("User/list", "users", userDao.findAll());
 	}
 
-	@RequestMapping("/{id}/details.html")
-	public ModelAndView details(@PathVariable Long id) {
+	@RequestMapping("/details.html")
+	public ModelAndView details(HttpServletRequest request) {
+		
 		ModelAndView view = new ModelAndView();
-		view.addObject("user", userDao.find(id));
+		view.addObject("user", userDao.find((Long)request.getSession().getAttribute("id_user")));
 		view.setViewName("User/details");
 		return view;
 	}

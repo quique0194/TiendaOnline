@@ -31,6 +31,7 @@ public class SessionController {
 	@RequestMapping(value = "/auth.html", method = RequestMethod.POST)
 	public void login(String username, String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		if(userDao.existsUser(username, password)){
+			request.getSession().setAttribute("id_user", userDao.findIdByUsername(String.valueOf(username)));
 			request.getSession().setAttribute("username", String.valueOf(username));
 			response.sendRedirect("home.html");
 		}
