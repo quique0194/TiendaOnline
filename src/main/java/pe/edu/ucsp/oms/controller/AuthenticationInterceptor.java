@@ -39,7 +39,6 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 		}
 		
 		else{
-			System.out.println("no me rompas las pelotas!");
 			if(userDao.existsByUsername(username)){
 				System.out.println("es un usuario!");
 				if(!request.getRequestURL().toString().endsWith("login.html")&& 
