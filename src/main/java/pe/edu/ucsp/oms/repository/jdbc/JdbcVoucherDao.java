@@ -16,6 +16,7 @@ public class JdbcVoucherDao extends JdbcGenericDao<Voucher, Long> implements Vou
 	private final VoucherMapper mapper = new VoucherMapper(); 
 	@Override
 	public void update(Voucher voucher) {
+		System.out.println("entra al Voucher DAO");
 		String sql = "UPDATE " + getTableName() + " SET points = ? , discount = ? WHERE id = ? ";
 		jdbcTemplate.update(sql, voucher.getPoints() , voucher.getDiscount() , voucher.getId());
 	}

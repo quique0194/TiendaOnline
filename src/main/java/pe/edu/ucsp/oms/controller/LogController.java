@@ -11,63 +11,55 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import pe.edu.ucsp.oms.domain.Administrator;
-import pe.edu.ucsp.oms.repository.AdministratorDao;
+import pe.edu.ucsp.oms.domain.Log;
+import pe.edu.ucsp.oms.repository.LogDao;
 
 @Controller
-@RequestMapping("/Administrator")
-public class AdministratorController {
-
+@RequestMapping("/Log")
+public class LogController {
 	@Inject
-	AdministratorDao admiDao;
-	
+	LogDao logDao;
+
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
-		return new ModelAndView("Administrator/list", "admis", admiDao.findAll());
+		return new ModelAndView("Log/list", "logs", logDao.findAll());
 	}
 
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("admi", admiDao.find(id));
-		view.setViewName("Administrator/details");
+		view.addObject("log", logDao.find(id));
+		view.setViewName("Log/details");
 		return view;
 	}
 
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("admi", admiDao.find(id));
-		view.setViewName("Administrator/edit");
-		return view;
-	}
-	
-	@RequestMapping("/{id}/delete.html")
-	public ModelAndView delete(@PathVariable Long id) {
-		ModelAndView view = new ModelAndView();
-		view.addObject("admi", admiDao.find(id));
-		view.setViewName("Administrator/edit");
+		view.addObject("log", logDao.find(id));
+		view.setViewName("Log/edit");
 		return view;
 	}
 
 	@RequestMapping("/add.html")
 	public ModelAndView add() {
 		ModelAndView view = new ModelAndView();
-		view.addObject("admi", new Administrator());
-		view.setViewName("Administrator/edit");
+		view.addObject("log", new Log());
+		view.setViewName("Log/edit");
 		return view;
 	}
 
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("admi") Administrator admi, BindingResult result, SessionStatus status) {
-		if (admi.getId() == null) {
-			admiDao.save(admi);
+	public ModelAndView save(@ModelAttribute("log") Log log, BindingResult result, SessionStatus status) {
+		if (log.getId() == null) {
+			logDao.save(log);
 			status.setComplete();
 		}
 		else {
-			admiDao.update(admi);
+			logDao.update(log);
 			status.setComplete();
 		}
 		return list();
 	}
+
 }
