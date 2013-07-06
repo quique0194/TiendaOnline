@@ -8,6 +8,7 @@
 		<li><a href="${paidContent.idContent}/details.html">$paidContent.idUser $paidContent.idContent</a></li>
 	#end
 	</ul>
+	<hr>$message
 #end
 </body>
 </html>

@@ -64,6 +64,12 @@ public class JdbcPaymentDao extends JdbcGenericDao<Payment, Long> implements Pay
 			return payment;
 		}
 	}
+	
+	@Override
+	public boolean exists(Long idUser, Long idContent) {
+        String sql = "SELECT id_user FROM " + getTableName() + " WHERE id_user = ? AND id_content = ?";
+        return jdbcTemplate.queryForRowSet(sql, idUser,idContent).next();
+	}
 
 
 	/*@Override

@@ -337,7 +337,6 @@ INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_admini
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091531', 'detail5', 1, 2);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091532', 'detail4', 5, 4);
 
-
 insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('12/12/12', '20/12/05', 20);
 insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('01/12/12', '12/01/13', 15);
 insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('12/01/12', '14/06/11', 5);

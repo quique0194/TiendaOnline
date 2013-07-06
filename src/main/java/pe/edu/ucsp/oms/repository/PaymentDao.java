@@ -13,6 +13,7 @@ public interface PaymentDao extends GenericDao<Payment, Long>{
 
 	List<Payment> filterByIdUser(Long idUser);
 	List<Payment> filterByIdContent(Long idContent);
+	boolean exists(Long idUser ,Long idContent);
 	//List<Content> findByIdUser(Long idUser);
 
 }

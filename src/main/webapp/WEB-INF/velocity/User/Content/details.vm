@@ -1,0 +1,68 @@
+<html>
+<title>Details of Content</title>
+<body>
+<h1>$content.name</h1>
+	<a href="../genericList.html">View all...</a>
+	<hr>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Content:</b></td>
+			<td>$content.content<td>
+		</tr>
+		<tr>
+			<td><b>Autor:</b></td>
+			<td>$content.autor<td>
+		</tr>
+		<tr>
+			<td><b>Description:</b></td>
+			<td>$content.description<td>
+		</tr>
+		<tr>
+			<td><b>Price:</b></td>
+			<td>$content.price<td>
+		</tr>
+		<tr>
+			<td><b>Size:</b></td>
+			<td>$content.size bytes<td>
+		</tr>
+		<tr>
+			<td><b>Times Downloaded:</b></td>
+			<td>$content.timesDownload<td>
+		</tr>
+		<tr>
+			<td><b>Category:</b></td>
+			<td>#foreach($parent in $parents)
+			$parent.name/
+			#end $category.name<td>
+		</tr>
+		#if($promo)
+		<tr>
+			<td><b>Promo:</b></td>
+			<td>$promo.percent % discount<td>
+		</tr>
+		<tr>
+			<td><b>End Date Promo:</b></td>
+			<td>$promo.endDate<td>
+		</tr>
+		#end
+		<tr>
+			<td><b>Extension:</b></td>
+			<td>$typeFile.extension<td>
+		</tr>
+		<tr>
+			<td><b>Mime:</b></td>
+			<td>$typeFile.mime<td>
+		</tr>
+		<tr>
+			<td><b>Type Content:</b></td>
+			<td>$typeContent.typeContent<td>
+		</tr>
+	</table>
+	<br />
+	
+		<td><a href="buy.html"
+		onclick="return confirm('Are you sure you want to buy this Content?')"><button>Delete</button></a></li></td>
+	
+</body>
+</html>

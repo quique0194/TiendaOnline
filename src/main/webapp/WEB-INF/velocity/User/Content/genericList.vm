@@ -5,9 +5,10 @@
 #else
 	<ul>
 	#foreach($genericContent in $genericContents)
-		<li><a href="${genericContent.id}/details.html">$genericContent.name $genericContent.price</a></li>
+		<li><a href="${genericContent.id}/details.html">$genericContent.name   $genericContent.price</a></li>
 	#end
 	</ul>
+	<hr>$message
 #end
 </body>
 </html>
