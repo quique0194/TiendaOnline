@@ -1,0 +1,35 @@
+<html>
+<body>
+	<a href="../list.html">Go back</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$admi.id<td>
+		</tr>
+		<tr>
+			<td><b>Username:</b></td>
+			<td>$admi.username<td>
+		</tr>
+		<tr>
+			<td><b>First Name:</b></td>
+			<td>$admi.firstName<td>
+		</tr>
+		<tr>
+			<td><b>Last Name:</b></td>
+			<td>$admi.lastName<td>
+		</tr>
+		<tr>
+			<td><b>Email:</b></td>
+			<td>$admi.email<td>
+		</tr>
+	</table>
+	<br />
+	
+	
+	<a href="task.html">Tasks</a></br>
+	
+	
+	<a href="edit.html">Modify</a>
+</body>
+</html>
