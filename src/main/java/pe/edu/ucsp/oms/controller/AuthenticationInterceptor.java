@@ -18,7 +18,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
       ModelAndView modelAndView) throws Exception {
 		String username = (String)request.getSession().getAttribute("username");
 		if (username == null) {
-			if (!request.getRequestURL().toString().endsWith("login.html")) {
+			if (!request.getRequestURL().toString().endsWith("login.html") && 
+				!request.getRequestURL().toString().endsWith("register.html")){
 				response.sendRedirect(request.getContextPath() + "/login.html");
 			}
 		}

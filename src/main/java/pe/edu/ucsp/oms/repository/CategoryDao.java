@@ -17,6 +17,6 @@ public interface CategoryDao extends GenericDao<Category, Long> {
 	Category findParent(Long id);
 
 	void removeById(Long id);
-	
+
 	
 }

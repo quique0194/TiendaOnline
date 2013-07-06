@@ -294,7 +294,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 insert into Users values(null,'kike', '123456', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
 insert into Users values(NULL,'mbustamante', '123456', 'Miguel Angel', 'Bustamante Cayo','miguel@gmail.com', 1, 100, 15 );
 
-<<<<<<< HEAD
+
 insert into Type_content values(null, 'image');
 insert into Type_content values(null, 'audio');
 insert into Type_content values(null, 'video');
@@ -318,11 +318,7 @@ insert into Contents values(null, '~/Contenido9', 'Contenido9', 'autor9', 'Conte
 insert into Contents values(null, '~/Contenido10', 'Contenido10', 'autor10', 'Contenido de prueba', 60, 60, 1, 40, 2, 5);
 insert into Contents values(null, '~/Contenido11', 'Contenido11', 'autor11', 'Contenido de prueba', 65, 65, 1, 44, 1, 6);
 insert into Contents values(null, '~/Contenido12', 'Contenido12', 'autor12', 'Contenido de prueba', 70, 70, 1, 46, 2, 6);
-=======
 
-insert into Contents values(null, 'D:\Contenido1', 'Contenido1', 'kike', 'Contenido de prueba', 5, 18, 1, 45,1,1);
-insert into Contents values(null, 'D:\Contenido2', 'Contenido2', 'kike', 'Contenido de prueba', 10, 35, 1, 35,2,1);
->>>>>>> 491681c76017b06c609435d7efc4ae711d109c46
 
 insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
 insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
@@ -340,7 +336,7 @@ INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_admini
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091530', 'detail3', 2, 1);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091531', 'detail5', 1, 2);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091532', 'detail4', 5, 4);
-INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091529', 'detail2', 3, 5);
+
 
 insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('12/12/12', '20/12/05', 20);
 insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('01/12/12', '12/01/13', 15);

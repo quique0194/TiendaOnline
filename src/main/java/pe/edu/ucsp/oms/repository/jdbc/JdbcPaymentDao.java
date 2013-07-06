@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
+import pe.edu.ucsp.oms.domain.Content;
 import pe.edu.ucsp.oms.domain.Payment;
 import pe.edu.ucsp.oms.repository.PaymentDao;
 
@@ -27,9 +28,8 @@ public class JdbcPaymentDao extends JdbcGenericDao<Payment, Long> implements Pay
 
 	@Override
 	public List<Payment> filterByIdUser(Long idUser) {
-		String sql = "SELECT * FROM " + getTableName() + " WHERE id_user LIKE :idUser";
-	    SqlParameterSource namedParameters = new MapSqlParameterSource("id_user",idUser);
-	    return jdbcTemplate.query(sql, getRowMapper(), namedParameters);
+		String sql = "SELECT * FROM " + getTableName() + " WHERE id_user= ?";
+	    return jdbcTemplate.query(sql, getRowMapper(), idUser);
 	}
 
 	@Override
@@ -64,5 +64,12 @@ public class JdbcPaymentDao extends JdbcGenericDao<Payment, Long> implements Pay
 			return payment;
 		}
 	}
+
+
+	/*@Override
+	public List<Content> findByIdUser(Long idUser) {
+		String sql = "SELECT * FROM " + getTableName() + "where id_user = ?";        
+        return jdbcTemplate.query(sql, getRowMapper(),idUser);
+	}*/
 
 }
