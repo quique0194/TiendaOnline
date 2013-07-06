@@ -8,6 +8,9 @@ public class Payment implements BaseEntity<Long>{
 	
 	private Long idUser;
 	private Long idContent;
+	
+	public Payment(){
+	}
 
 	@Override
 	public Long getId() {
