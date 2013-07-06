@@ -85,4 +85,11 @@ public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
 		String sql = "SELECT * FROM " + getTableName() + " WHERE username = ? and password = ?";
         return jdbcTemplate.queryForRowSet(sql, username, password).next();        
 	}
+
+	@Override
+	public Long findIdByUsername(String username) {
+		String sql = "SELECT * FROM " + getTableName() + " WHERE username = ?";
+        return jdbcTemplate.queryForObject(sql, getRowMapper(), username).getId();
+		
+	}
 }
