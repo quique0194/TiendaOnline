@@ -5,19 +5,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import pe.edu.ucsp.oms.domain.Administrator;
 import pe.edu.ucsp.oms.domain.LogAdministrator;
 import pe.edu.ucsp.oms.domain.Task;
-import pe.edu.ucsp.oms.repository.AdministratorDao;
 import pe.edu.ucsp.oms.repository.LogAdministratorDao;
-import pe.edu.ucsp.oms.repository.jdbc.JdbcAdministratorDao.AdministratorMapper;
 
 @Repository
 public class JdbcLogsAdministrator extends JdbcGenericDao<LogAdministrator, Long> implements LogAdministratorDao{

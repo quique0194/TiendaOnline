@@ -1,0 +1,30 @@
+<html>
+<body>
+<title>Edit a Promotion</title>
+<h1>#if($promo.id)$category.name #else New Promo #end</h1>
+<a href=#if($promo.id) "details.html" #else "administrate.html" #end>Cancel...</a>
+<hr>
+#set($saveUrl = "save.html")
+<form action="#if($promo.id)../#end$saveUrl" method="POST">
+    <table>
+        <input type="hidden" name="id" value="$!promo.id"/>
+        <tr>
+			<td><b>Start Date:</b></td>
+			<td><input type="text" name="startDate" value="$!promo.startDate"/><td>
+		</tr>
+		<tr>
+			<td><b>End Date:</b></td>
+			<td><input type="text" name="endDate" value="$!promo.endDate"/><td>
+		</tr>
+		<tr>
+			<td><b>Percent:</b></td>
+			<td><input type="text" name="percent" value="$!promo.percent"/><td>
+		</tr>  
+    </table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+<hr><a href="/TiendaOnline/homeAdministrator.html"><button>Home</button></a>
+</body>
+</html>

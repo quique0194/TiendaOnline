@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
-import pe.edu.ucsp.oms.domain.Content;
 import pe.edu.ucsp.oms.domain.Payment;
 import pe.edu.ucsp.oms.repository.PaymentDao;
 
@@ -63,6 +62,12 @@ public class JdbcPaymentDao extends JdbcGenericDao<Payment, Long> implements Pay
 			payment.setIdUser(rs.getLong("id_user"));
 			return payment;
 		}
+	}
+	
+	@Override
+	public boolean exists(Long idUser, Long idContent) {
+        String sql = "SELECT id_user FROM " + getTableName() + " WHERE id_user = ? AND id_content = ?";
+        return jdbcTemplate.queryForRowSet(sql, idUser,idContent).next();
 	}
 
 

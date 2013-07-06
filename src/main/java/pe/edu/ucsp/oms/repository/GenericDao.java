@@ -18,6 +18,8 @@ public interface GenericDao<T extends BaseEntity<PK>, PK extends Number>
 
 	public long count();
 	
+	public boolean existsByUsername(String username);
+	
 	public boolean exists(PK id);
 
 	public List<T> findAll();
