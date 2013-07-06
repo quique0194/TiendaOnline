@@ -51,9 +51,8 @@ public class JdbcDownloadDao extends JdbcGenericDao<Download ,Long> implements D
 
 	@Override
 	public List<Download> filterByUser(Long idUser) {
-		String sql = "SELECT * FROM " + getTableName() + " WHERE id_user LIKE :idUser";
-	    SqlParameterSource namedParameters = new MapSqlParameterSource("id_user",idUser);
-	    return jdbcTemplate.query(sql, getRowMapper(), namedParameters);
+		String sql = "SELECT * FROM " + getTableName() + " WHERE id_user= ?";
+	    return jdbcTemplate.query(sql, getRowMapper(), idUser);
 	}
 	
 

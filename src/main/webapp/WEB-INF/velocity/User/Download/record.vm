@@ -1,0 +1,14 @@
+<html>
+<body>
+#if($downloads.empty)
+	<div>There are not Downloads</div>
+#else
+	<table>
+	<tr><td>Date</td>  <td>IdContenido</td><td>IdUser</td></tr>
+	#foreach($download in $downloads)
+		<tr><td> $download.date</td> <td> <a href="${paidContent.idContent}/details.html">$download.idContent</a></td> </tr>
+	#end
+	</table>
+#end
+</body>
+</html>

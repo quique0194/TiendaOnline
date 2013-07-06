@@ -1,5 +1,7 @@
 package pe.edu.ucsp.oms.controller;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pe.edu.ucsp.oms.domain.Category;
 import pe.edu.ucsp.oms.domain.Content;
+import pe.edu.ucsp.oms.domain.Download;
 import pe.edu.ucsp.oms.domain.Payment;
 import pe.edu.ucsp.oms.domain.Promo;
 import pe.edu.ucsp.oms.domain.TypeContent;
@@ -17,6 +20,7 @@ import pe.edu.ucsp.oms.domain.TypeFile;
 import pe.edu.ucsp.oms.domain.User;
 import pe.edu.ucsp.oms.repository.CategoryDao;
 import pe.edu.ucsp.oms.repository.ContentDao;
+import pe.edu.ucsp.oms.repository.DownloadDao;
 import pe.edu.ucsp.oms.repository.PaymentDao;
 import pe.edu.ucsp.oms.repository.PromoDao;
 import pe.edu.ucsp.oms.repository.TypeContentDao;
@@ -47,6 +51,9 @@ public class UserContentController {
 	
 	@Inject 
 	UserDao userDao;
+	
+	@Inject 
+	DownloadDao downloadDao;
 	
 	
 	
@@ -119,12 +126,31 @@ public class UserContentController {
 				return view;
 			}
 		}
+		
+		
+		
+		
 		ModelAndView view = new ModelAndView();
 		view.addObject("message","usted ya cuenta con este contenido");
 		view.addObject("genericContents", contentDao.findAll());
 		view.setViewName("User/Content/genericList");
 		return view;
 		
+	}
+	
+	@RequestMapping("/{id}/download.html")
+	public ModelAndView down(@PathVariable Long id,HttpServletRequest request) {
+		
+		Date date = new Date();
+		Download download = new Download();
+		download.setDate(String.valueOf(date));
+		download.setIdContent(id);
+		download.setIdUser((Long)request.getSession().getAttribute("id_user"));
+		downloadDao.save(download);
+		ModelAndView view = new ModelAndView();
+		view.addObject("downloads", downloadDao.filterByUser((Long)request.getSession().getAttribute("id_user")) );
+		view.setViewName("User/Download/record");
+		return view;
 	}
 
 }
