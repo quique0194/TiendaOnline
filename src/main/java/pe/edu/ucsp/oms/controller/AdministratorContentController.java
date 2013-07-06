@@ -80,6 +80,8 @@ public class AdministratorContentController {
 		ModelAndView view = new ModelAndView();
 		view.addObject("content", new Content());
 		view.addObject("categories", categoryDao.findAll());
+		view.addObject("promos", promoDao.getValidPromos());
+		view.addObject("typeFiles", typeFileDao.findAll());
 		view.setViewName("Administrator/Content/edit");
 		return view;
 	}
@@ -89,6 +91,8 @@ public class AdministratorContentController {
 		ModelAndView view = new ModelAndView();
 		view.addObject("content", contentDao.find(id));
 		view.addObject("categories", categoryDao.findAll());
+		view.addObject("promos", promoDao.getValidPromos());
+		view.addObject("typeFiles", typeFileDao.findAll());
 		view.setViewName("Administrator/Content/edit");
 		return view;
 	}

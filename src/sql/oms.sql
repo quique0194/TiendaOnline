@@ -291,10 +291,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- Insertions
 
-insert into Users values(null,'kike', '123456', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
-insert into Users values(NULL,'mbustamante', '123456', 'Miguel Angel', 'Bustamante Cayo','miguel@gmail.com', 1, 100, 15 );
-
-
 insert into Type_content values(null, 'image');
 insert into Type_content values(null, 'audio');
 insert into Type_content values(null, 'video');
@@ -320,11 +316,7 @@ insert into Contents values(null, '~/Contenido11', 'Contenido11', 'autor11', 'Co
 insert into Contents values(null, '~/Contenido12', 'Contenido12', 'autor12', 'Contenido de prueba', 70, 70, 1, 46, 2, 6);
 
 
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi3', 'admi3', 'admi3', 'admi3','admi3@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi4', 'admi4', 'admi4', 'admi4','admi4@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi5', 'admi5', 'admi5', 'admi5','admi5@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi1', 'c7ec5dc454ed8f608b9036be87de1f15', 'admi1', 'admi1','admi1@gmail.com');
 
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task1');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task2');
@@ -341,7 +333,7 @@ insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES
 insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('01/12/12', '12/01/13', 15);
 insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('12/01/12', '14/06/11', 5);
 
-INSERT INTO `Portal_Descarga`.`SuperAdministrator` ( `username`, `password`, `first_name`, `last_name`, `email`) VALUES ('Great_Kaiosama', '123456', 'Kaio', 'Sama', 'kaio_sama@god');
+INSERT INTO `Portal_Descarga`.`SuperAdministrator` ( `username`, `password`, `first_name`, `last_name`, `email`) VALUES ('Great_Kaiosama', 'e10adc3949ba59abbe56e057f20f883e', 'Kaio', 'Sama', 'kaio_sama@god');
 
 insert into Type_file values(null,'jpg','mime',1);
 

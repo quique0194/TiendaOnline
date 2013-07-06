@@ -1,6 +1,7 @@
 package pe.edu.ucsp.oms.domain;
 
-public class Puntuation {
+
+public class Puntuation implements BaseEntity<Long>{
 	private static final long serialVersionUID = 1L;
 	public final static String TABLE_NAME = "Puntuations";
 	
@@ -31,5 +32,17 @@ public class Puntuation {
 	
 	public void setVal(Integer val) {
 		this.val = val;
+	}
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setId(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 }
