@@ -5,6 +5,8 @@ WELCOME $username $id_user </br></br>
 
     <a href="User/details.html">Detail</a></br>
     <a href="User/edit.html">Edit</a></br>
+    <a href="User/Content/genericList.html">All Contents </a></br>
+    <a href="User/Content/paidList.html">Purchased Content</a></br>
     
 </body>
 </html>

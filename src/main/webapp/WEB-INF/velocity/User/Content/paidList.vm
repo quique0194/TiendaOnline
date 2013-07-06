@@ -1,0 +1,13 @@
+<html>
+<body>
+#if($paidContents.empty)
+	<div>They are not purchased contents</div>
+#else
+	<ul>
+	#foreach($paidContent in $paidContents)
+		<li><a href="${paidContent.idContent}/details.html">$paidContent.idUser $paidContent.idContent</a></li>
+	#end
+	</ul>
+#end
+</body>
+</html>

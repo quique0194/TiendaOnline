@@ -1,0 +1,13 @@
+<html>
+<body>
+#if($genericContents.empty)
+	<div>There are not Contents</div>
+#else
+	<ul>
+	#foreach($genericContent in $genericContents)
+		<li><a href="${genericContent.id}/details.html">$genericContent.name $genericContent.price</a></li>
+	#end
+	</ul>
+#end
+</body>
+</html>
