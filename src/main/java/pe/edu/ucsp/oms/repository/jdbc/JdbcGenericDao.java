@@ -50,6 +50,12 @@ public abstract class JdbcGenericDao<T extends BaseEntity<PK>, PK extends Number
 	}
 	
 	@Override
+	public boolean existsByUsername(String username){
+		String sql = "SELECT id FROM "+ getTableName() + " WHERE username = ?";
+		return jdbcTemplate.queryForRowSet(sql , username).next();
+	}
+	
+	@Override
 	public List<T> findAll() {
 		String sql = "SELECT * FROM " + getTableName();        
         return jdbcTemplate.query(sql, getRowMapper());
