@@ -3,5 +3,7 @@
 WELCOME Administrator
 <a href="Administrator/list.html"><p>Ver lista de Administradores</p>
 <a href="Task/list.html"><p>Ver lista de Tareas</p>
+<a href="Administrator/Content/administrate.html"><p>Administrate Contents</p>
+<a href="Administrator/Category/administrate.html"><p>Administrate Categories</p>
 </body>
 </html>

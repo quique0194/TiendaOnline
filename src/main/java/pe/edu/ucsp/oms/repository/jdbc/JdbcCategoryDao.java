@@ -2,6 +2,7 @@ package pe.edu.ucsp.oms.repository.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
@@ -11,7 +12,6 @@ import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import pe.edu.ucsp.oms.domain.Category;
-import pe.edu.ucsp.oms.domain.User;
 
 import pe.edu.ucsp.oms.repository.CategoryDao;
 
@@ -72,5 +72,17 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public List<Category> findParents(Long id){
+		List<Category> ls = new ArrayList<Category>();
+		Category actual=find(id);
+		while(actual.getIdFather()!=0)
+		{
+			actual=find(actual.getIdFather());
+			ls.add(0,actual);
+		}
+		return ls;		
+	}
+	
 
 }

@@ -291,20 +291,28 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- Insertions
 
-insert into Users values(null,'kike', 'kike', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
+insert into Users values(null,'kike', '123456', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
 insert into Users values(NULL,'mbustamante', '123456', 'Miguel Angel', 'Bustamante Cayo','miguel@gmail.com', 1, 100, 15 );
-insert into Contents values(1, 'rutaContenido1', 'contenido1', 'kike', 'contenido de prueba', 5, 18, 1, 1,1,1);
-insert into Contents values(2, 'rutaContenido2', 'contenido2', 'kike', 'contenido de prueba', 10, 35, 1, 1,1,1);
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`)values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`) values('admi3', 'admi3', 'admi3', 'admi3','admi3@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`) values('admi4', 'admi4', 'admi4', 'admi4','admi4@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`,`email`) values('admi5', 'admi5', 'admi5', 'admi5','admi5@gmail.com');
+
+
+insert into Contents values(null, 'D:\Contenido1', 'Contenido1', 'kike', 'Contenido de prueba', 5, 18, 1, 45,1,1);
+insert into Contents values(null, 'D:\Contenido2', 'Contenido2', 'kike', 'Contenido de prueba', 10, 35, 1, 35,2,1);
+
+insert into Promos values(null, '03-03-2013', '12-12-2013', 20);
+insert into Promos values(null, '01-01-2013', '03-03-2013',30);
+
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi3', 'admi3', 'admi3', 'admi3','admi3@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi4', 'admi4', 'admi4', 'admi4','admi4@gmail.com');
+insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi5', 'admi5', 'admi5', 'admi5','admi5@gmail.com');
+
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task1');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task2');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task3');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task4');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task5');
+
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091529', 'detail2', 3, 5);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091530', 'detail3', 2, 1);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091531', 'detail5', 1, 2);
@@ -313,7 +321,7 @@ INSERT INTO `Portal_Descarga`.`SuperAdministrator` ( `username`, `password`, `fi
 
 insert into Type_file values(null,'jpg','mime',1);
 
-INSERT INTO `Portal_Descarga`.`Categories` (`id`, `name`, `id_father`) VALUES (1, 'Todo el Contenido', 1);
+INSERT INTO `Portal_Descarga`.`Categories` (`id`, `name`, `id_father`) VALUES (1, 'Todo el Contenido', null);
 INSERT INTO `Portal_Descarga`.`Categories` (`id`, `name`, `id_father`) VALUES (2, 'Imagen', 1);
 INSERT INTO `Portal_Descarga`.`Categories` (`id`, `name`, `id_father`) VALUES (3, 'Música', 1);
 INSERT INTO `Portal_Descarga`.`Categories` (`id`, `name`, `id_father`) VALUES (4, 'Video', 1);
