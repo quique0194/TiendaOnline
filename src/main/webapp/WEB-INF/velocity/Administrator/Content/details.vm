@@ -39,7 +39,7 @@
 		#if($promo)
 		<tr>
 			<td><b>Promo:</b></td>
-			<td>$promo.percent<td>
+			<td>$promo.percent % discount<td>
 		</tr>
 		<tr>
 			<td><b>End Date Promo:</b></td>

@@ -318,9 +318,6 @@ insert into Contents values(null, '~/Contenido10', 'Contenido10', 'autor10', 'Co
 insert into Contents values(null, '~/Contenido11', 'Contenido11', 'autor11', 'Contenido de prueba', 65, 65, 1, 44, 1, 6);
 insert into Contents values(null, '~/Contenido12', 'Contenido12', 'autor12', 'Contenido de prueba', 70, 70, 1, 46, 2, 6);
 
-insert into Promos values(null, '03-03-2013', '12-12-2013', 20);
-insert into Promos values(null, '01-01-2013', '03-03-2013',30);
-
 insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
 insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
 insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi3', 'admi3', 'admi3', 'admi3','admi3@gmail.com');

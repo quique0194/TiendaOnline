@@ -44,7 +44,7 @@ public class AdministratorCategoryController {
 	
 	@RequestMapping("/{id}/delete.html")
 	public String delete(@PathVariable Long id){
-		categoryDao.removeById(id);
+		categoryDao.deleteCategory(id);
 		return "redirect:../administrate.html";
 	}
 	

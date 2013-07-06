@@ -57,7 +57,7 @@ public class JdbcContentDao extends JdbcGenericDao<Content, Long> implements Con
 			content.setSize(rs.getInt("size"));
 			content.setTimesDownload(rs.getInt("times_download"));
 			content.setIdCategory(rs.getLong("id_category"));
-			content.setIdPromo(rs.getInt("id_promo"));
+			content.setIdPromo(rs.getLong("id_promo"));
 			content.setIdTypeFile(rs.getLong("id_type_file"));
 			return content;
 		}
