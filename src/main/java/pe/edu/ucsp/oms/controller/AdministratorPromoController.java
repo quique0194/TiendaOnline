@@ -22,10 +22,15 @@ public class AdministratorPromoController {
 	PromoDao promoDao;
 	
 	@RequestMapping("/administrate.html")
-	public ModelAndView administrate(){
+	public ModelAndView administrate() {
+		return new ModelAndView("Administrator/Promo/administrate", "promos", promoDao.findAll());
+	}
+	
+	@RequestMapping("/{id}/delete.html")
+	public ModelAndView delete(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("contents", promoDao.findAll());
-		view.setViewName("Administrator/Promo/administrate");
+		view.addObject("promo", promoDao.find(id));
+		view.setViewName("Administrator/Promo/edit");
 		return view;
 	}
 	
