@@ -1,7 +1,7 @@
 <html>
 <body>
 <title>Edit a Category</title>
-<h1>$!category.name</h1>
+<h1>#if($category.id)$category.name #else New Category #end</h1>
 <a href=#if($category.id) "details.html" #else "administrate.html" #end>Cancel...</a>
 <hr>
 #set($saveUrl = "save.html")

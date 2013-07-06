@@ -36,17 +36,31 @@
 			$parent.name/
 			#end $category.name<td>
 		</tr>
+		#if($promo)
 		<tr>
-			<td><b>IdPromo:</b></td>
-			<td>$content.idPromo<td>
+			<td><b>Promo:</b></td>
+			<td>$promo.percent<td>
 		</tr>
 		<tr>
-			<td><b>IdTypeFile:</b></td>
-			<td>$content.idTypeFile<td>
+			<td><b>End Date Promo:</b></td>
+			<td>$promo.endDate<td>
+		</tr>
+		#end
+		<tr>
+			<td><b>Extension:</b></td>
+			<td>$typeFile.extension<td>
+		</tr>
+		<tr>
+			<td><b>Mime:</b></td>
+			<td>$typeFile.mime<td>
+		</tr>
+		<tr>
+			<td><b>Type Content:</b></td>
+			<td>$typeContent.typeContent<td>
 		</tr>
 	</table>
 	<br />
 	<a href="edit.html">Modify</a>
-	<hr><a href="../../../homeAdministrator.html"><button>Home</button></a>
+<hr><a href="/TiendaOnline/homeAdministrator.html"><button>Home</button></a>
 </body>
 </html>
