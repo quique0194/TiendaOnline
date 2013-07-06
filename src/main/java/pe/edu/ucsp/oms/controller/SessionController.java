@@ -32,7 +32,6 @@ public class SessionController {
 	SuperAdministratorDao superAdmiDao;
 	@RequestMapping("/login.html")
 	public ModelAndView showLogin() {
-		System.out.println("Entramos a login");
 		return new ModelAndView("login");
 	}
 

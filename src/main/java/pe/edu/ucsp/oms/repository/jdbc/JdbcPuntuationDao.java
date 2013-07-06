@@ -7,9 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
-import org.springframework.stereotype.Repository;
 
-import pe.edu.ucsp.oms.domain.Promo;
 import pe.edu.ucsp.oms.domain.Puntuation;
 import pe.edu.ucsp.oms.repository.PuntuationDao;
 

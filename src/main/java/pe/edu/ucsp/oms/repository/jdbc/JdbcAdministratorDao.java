@@ -29,8 +29,8 @@ public class JdbcAdministratorDao extends JdbcGenericDao<Administrator, Long> im
 	
 	@Override
 	public void update(final Administrator admi) {
-		String sql = "UPDATE " + getTableName() + " SET first_name = ?, last_name = ?, email = ?, username = ? WHERE id = ?";
-		jdbcTemplate.update(sql, admi.getFirstName(), admi.getLastName(), admi.getEmail(), admi.getUsername(), admi.getId());
+		String sql = "UPDATE " + getTableName() + " SET first_name = ?, last_name = ?, email = ?, username = ?, password = ? WHERE id = ?";
+		jdbcTemplate.update(sql, admi.getFirstName(), admi.getLastName(), admi.getEmail(), admi.getUsername(), admi.getPassword(), admi.getId());
 	}
 
 	@Override

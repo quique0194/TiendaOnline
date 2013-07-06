@@ -23,7 +23,7 @@ public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
 	protected PasswordEncoder encoder = new Md5PasswordEncoder();
 
 	@Override
-	public void update(final User user) {
+	public void update(User user) {
 		String sql = "UPDATE " + getTableName() + " SET username = ? , password=?, first_name = ?, last_name = ?, email = ?  WHERE id = ?";
 		jdbcTemplate.update(sql,user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getId());
 	}
@@ -90,6 +90,13 @@ public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
 	public Long findIdByUsername(String username) {
 		String sql = "SELECT * FROM " + getTableName() + " WHERE username = ?";
         return jdbcTemplate.queryForObject(sql, getRowMapper(), username).getId();
+		
+	}
+
+	@Override
+	public void updateBalance(User user) {
+		String sql = "UPDATE " + getTableName() + " SET balance = ?  WHERE id = ?";
+		jdbcTemplate.update(sql,user.getBalance(), user.getId());
 		
 	}
 }

@@ -23,6 +23,10 @@
 			<td><b>Email:</b></td>
 			<td>$user.email<td>
 		</tr>
+		<tr>
+			<td><b>Balance:</b></td>
+			<td>$user.balance<td>
+		</tr>
 	</table>
 	<br />
 	<a href="edit.html">Modificar</a>

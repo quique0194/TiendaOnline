@@ -3,11 +3,12 @@
 #if($paidContents.empty)
 	<div>They are not purchased contents</div>
 #else
-	<ul>
+	<table>
+	<tr><td>Id-Usuario</td>  <td>Id-Contenido</td></tr>
 	#foreach($paidContent in $paidContents)
-		<li><a href="${paidContent.idContent}/details.html">$paidContent.idUser $paidContent.idContent</a></li>
+		<tr><td>$paidContent.idUser</td>  <td><a href="${paidContent.idContent}/details.html"> $paidContent.idContent</a></td></tr>
 	#end
-	</ul>
+	</table>
 	<hr>$message
 #end
 </body>
