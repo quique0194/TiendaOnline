@@ -39,10 +39,10 @@ public class UserController {
 		return view;
 	}
 
-	@RequestMapping("/{id}/edit.html")
-	public ModelAndView edit(@PathVariable Long id) {
+	@RequestMapping("/edit.html")
+	public ModelAndView edit(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("user", userDao.find(id));
+		view.addObject("user", userDao.find((Long)request.getSession().getAttribute("id_user")));
 		view.setViewName("User/edit");
 		return view;
 	}

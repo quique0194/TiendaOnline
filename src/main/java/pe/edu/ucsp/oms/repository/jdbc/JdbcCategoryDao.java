@@ -84,5 +84,12 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 		return ls;		
 	}
 	
+	public void deleteCategory(Long id) {
+		String sql = "DELETE FROM " + getTableName() + " WHERE id = ? ";
+		jdbcTemplate.update(sql, id);
+		sql = "DELETE FROM " + getTableName() + " WHERE id_father = ? ";
+		jdbcTemplate.update(sql, id);
+	}
+	
 
 }

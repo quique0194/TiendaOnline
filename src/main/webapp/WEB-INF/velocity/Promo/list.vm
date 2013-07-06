@@ -1,0 +1,13 @@
+<html>
+<body>
+#if($promos.empty)
+	<div>No hay promociones</div>
+#else
+	<ul>
+	#foreach($promo in $promos)
+		<li><a href="${promo.id}/details.html">$promo.startDate, $promo.endDate, $promo.percent</a></li>
+	#end
+	</ul>
+#end
+</body>
+</html>

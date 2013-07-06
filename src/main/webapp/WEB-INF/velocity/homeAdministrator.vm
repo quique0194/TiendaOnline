@@ -3,7 +3,11 @@
 WELCOME Administrator
 <a href="Administrator/list.html"><p>Ver lista de Administradores</p>
 <a href="Task/list.html"><p>Ver lista de Tareas</p>
+<<<<<<< HEAD
+<a href="Promo/list.html"><p>Ver lista de Promos</p>
+=======
 <a href="Administrator/Content/administrate.html"><p>Administrate Contents</p>
 <a href="Administrator/Category/administrate.html"><p>Administrate Categories</p>
+>>>>>>> a1a4f3b974f3bfc6a5d1a0ca8ecc5ef3c52ac2ff
 </body>
 </html>

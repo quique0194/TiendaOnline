@@ -337,7 +337,14 @@ INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_admini
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091530', 'detail3', 2, 1);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091531', 'detail5', 1, 2);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091532', 'detail4', 5, 4);
+<<<<<<< HEAD
+INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091529', 'detail2', 3, 5);
+Insert Into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('12/12/12', '20/12/05', 20);
+Insert Into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('01/12/12', '12/01/13', 15);
+Insert Into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('12/01/12', '14/06/11', 5);
+=======
 INSERT INTO `Portal_Descarga`.`SuperAdministrator` ( `username`, `password`, `first_name`, `last_name`, `email`) VALUES ('Great_Kaiosama', '123456', 'Kaio', 'Sama', 'kaio_sama@god');
+>>>>>>> a1a4f3b974f3bfc6a5d1a0ca8ecc5ef3c52ac2ff
 
 insert into Type_file values(null,'jpg','mime',1);
 
