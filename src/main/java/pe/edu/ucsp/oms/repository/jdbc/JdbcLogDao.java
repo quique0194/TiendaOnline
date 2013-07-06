@@ -22,18 +22,17 @@ public class JdbcLogDao extends JdbcGenericDao<Log, Long> implements LogDao{
 		String sql = "UPDATE " + getTableName() + " SET date = ?, detail= ?, id_administrator= ?, id_task= ?";
 		jdbcTemplate.update(sql, log.getDate(), log.getDetail(), log.getId_administrator(), log.getId_task());
 	}
-
+	
 	@Override
-	public List<Log> filterByAdministrator(Long id){
-		String sql = "SELECT * FROM " + getTableName() + " WHERE id_administrator =?";
-	    SqlParameterSource namedParameters = new MapSqlParameterSource("id_administrator", id);
-	    return jdbcTemplate.query(sql, getRowMapper(), namedParameters);
+	public List<Log> filterByAdministrator(Long id_administrator) {
+		String sql = "SELECT * FROM " + getTableName() + " WHERE id_administrator= ?";
+		return jdbcTemplate.query(sql, getRowMapper(), id_administrator);
 	}
 	
 	@Override
-	public List<Log> filterByTask(Long id) {
-		String sql = "SELECT * FROM " + getTableName() + " WHERE id_task =?";
-	    SqlParameterSource namedParameters = new MapSqlParameterSource("id_task", id);
+	public List<Log> filterByTask(Long id_task) {
+		String sql = "SELECT * FROM " + getTableName() + " WHERE id_task =id_task";
+	    SqlParameterSource namedParameters = new MapSqlParameterSource("id_task", id_task);
 	    return jdbcTemplate.query(sql, getRowMapper(), namedParameters);
 	}	
 
