@@ -1,0 +1,18 @@
+<html>
+#set($saveUrl = "save.html")
+<form action="#if($task.id)../#end$saveUrl" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!task.id<input type="hidden" name="id" value="$!task.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Task:</b></td>
+			<td><input type="text" name="task" value="$!task.task"/><td>
+		</tr>
+	</table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>

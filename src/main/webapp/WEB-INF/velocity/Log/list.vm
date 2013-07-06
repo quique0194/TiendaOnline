@@ -1,0 +1,13 @@
+<html>
+<body>
+#if($logs.empty)
+	<div>No hay Registros</div>
+#else
+	<ul>
+	#foreach($log in $logs)
+		<li><a href="${log.id}/details.html">$log.date $log.detail $log.task</a></li>
+	#end
+	</ul>
+#end
+</body>
+</html>

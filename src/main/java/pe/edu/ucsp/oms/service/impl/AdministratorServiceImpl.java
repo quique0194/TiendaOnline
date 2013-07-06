@@ -1,5 +1,7 @@
 package pe.edu.ucsp.oms.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,11 @@ public class AdministratorServiceImpl implements AdministratorService {
 	@Override
 	public Administrator findByEmail(String email) {
 		return admiDao.findByEmail(email);
+	}
+	
+	@Override
+	public List<Administrator> filterByEmail(String email) {
+		return admiDao.filterByEmail(email);
 	}
 
 }
