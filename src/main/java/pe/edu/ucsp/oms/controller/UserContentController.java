@@ -55,6 +55,7 @@ public class UserContentController {
 		ModelAndView view = new ModelAndView();
 		view.addObject("message","");
 		view.addObject("genericContents", contentDao.findAll());
+		view.setViewName("User/Content/genericList");
 		return view;
 	}
 	
@@ -64,6 +65,7 @@ public class UserContentController {
 		ModelAndView view = new ModelAndView();
 		view.addObject("message","");
 		view.addObject("paidContents",paymentDao.filterByIdUser((Long)request.getSession().getAttribute("id_user")));
+		view.setViewName("User/Content/paidList");
 		return view;
 	}
 	
@@ -91,19 +93,21 @@ public class UserContentController {
 	public ModelAndView buy(@PathVariable Long id,HttpServletRequest request) {
 		Content content = contentDao.find(id);
 		User user = userDao.find((Long)request.getSession().getAttribute("id_user"));
-		if(paymentDao.exists(user.getId(), content.getId()))
+		if(!paymentDao.exists(user.getId(), content.getId()))
 		{
-			if(content.getPrice() > user.getBalance() )
+			if(content.getPrice() < user.getBalance() )
 			{
 				user.setBalance(user.getBalance() - content.getPrice() );
 				Payment payment = new Payment();
 				payment.setIdContent(content.getId());
 				payment.setIdUser(user.getId());
-				userDao.update(user);
+				userDao.updateBalance(user);
+				
 				paymentDao.save(payment);
 				ModelAndView view = new ModelAndView();
 				view.addObject("message","Compra realizada exitosamente");
 				view.addObject("paidContents",paymentDao.filterByIdUser((Long)request.getSession().getAttribute("id_user")));
+				view.setViewName("User/Content/paidList");
 				return view;
 			}
 			else
@@ -111,12 +115,14 @@ public class UserContentController {
 				ModelAndView view = new ModelAndView();
 				view.addObject("message","Saldo insuficiente");
 				view.addObject("genericContents", contentDao.findAll());
+				view.setViewName("User/Content/genericList");
 				return view;
 			}
 		}
 		ModelAndView view = new ModelAndView();
 		view.addObject("message","usted ya cuenta con este contenido");
 		view.addObject("genericContents", contentDao.findAll());
+		view.setViewName("User/Content/genericList");
 		return view;
 		
 	}
