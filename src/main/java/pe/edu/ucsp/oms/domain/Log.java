@@ -1,5 +1,7 @@
 package pe.edu.ucsp.oms.domain;
 
+import java.sql.Date;
+
 public class Log implements BaseEntity<Long> {
 	
 	/**
@@ -9,7 +11,7 @@ public class Log implements BaseEntity<Long> {
 	
 	public final static String TABLE_NAME = "Logs_administrator";
 	
-	private Long date;
+	private Date date;
 	
 	private String detail;
 	
@@ -17,12 +19,12 @@ public class Log implements BaseEntity<Long> {
 	
 	private Long id_task;
 	
-	public Long getDate() {
+	public Date getDate() {
 		return date;
 	}
 
 
-	public void setDate(Long date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

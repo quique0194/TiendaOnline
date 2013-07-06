@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
@@ -31,9 +29,8 @@ public class JdbcLogDao extends JdbcGenericDao<Log, Long> implements LogDao{
 	
 	@Override
 	public List<Log> filterByTask(Long id_task) {
-		String sql = "SELECT * FROM " + getTableName() + " WHERE id_task =id_task";
-	    SqlParameterSource namedParameters = new MapSqlParameterSource("id_task", id_task);
-	    return jdbcTemplate.query(sql, getRowMapper(), namedParameters);
+		String sql = "SELECT * FROM " + getTableName() + " WHERE id_task= ?";
+		return jdbcTemplate.query(sql, getRowMapper(), id_task);
 	}	
 
 	@Override
@@ -55,7 +52,7 @@ public class JdbcLogDao extends JdbcGenericDao<Log, Long> implements LogDao{
 	public static class LogAdministratorMapper implements RowMapper<Log> {
 		public Log mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Log log = new Log();
-			log.setDate(rs.getLong("date"));
+			log.setDate(rs.getDate("date"));
 			log.setDetail(rs.getString("detail"));
 			log.setId_administrator(rs.getLong("id_administrator"));
 			log.setId_task(rs.getLong("id_task"));

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pe.edu.ucsp.oms.domain.Administrator;
 import pe.edu.ucsp.oms.repository.AdministratorDao;
 import pe.edu.ucsp.oms.repository.LogDao;
+import pe.edu.ucsp.oms.repository.TaskDao;
 
 @Controller
 @RequestMapping("/SuperAdministrator/Admi")
@@ -25,11 +26,22 @@ public class SuperAdmiAdmiController {
 	@Inject
 	LogDao logDao;
 	
+	@Inject
+	TaskDao taskDao;
+		
 	@RequestMapping("/{id}/task.html")
 	public ModelAndView task(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("log", logDao.filterByAdministrator(id));
+		view.addObject("logs", logDao.filterByAdministrator(id));
 		view.setViewName("SuperAdministrator/Admi/task");
+		return view;
+	}
+	
+	@RequestMapping("/{id1}/{id}/taskdetail.html")
+	public ModelAndView taskdetail(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView();
+		view.addObject("details", taskDao.find(id));
+		view.setViewName("SuperAdministrator/Admi/taskdetail");
 		return view;
 	}
 	
