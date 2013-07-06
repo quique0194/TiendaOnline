@@ -2,6 +2,7 @@ package pe.edu.ucsp.oms.repository.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -49,6 +50,12 @@ public class JdbcPromoDao extends JdbcGenericDao<Promo, Long> implements PromoDa
 	@Override
 	protected RowMapper<Promo> getRowMapper() {
 		return mapper;
+	}
+
+	@Override
+	public List<Promo> getValidPromos() {
+		String sql = "SELECT * FROM " + getTableName() + " WHERE end_date > curdate()";
+		return jdbcTemplate.query(sql, getRowMapper());
 	}
 
 }

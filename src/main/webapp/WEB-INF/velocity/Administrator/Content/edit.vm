@@ -7,7 +7,7 @@
 #set($saveUrl = "save.html")
 <form action="#if($content.id)../#end$saveUrl" method="POST">
 	<table>
-		<td>$!content.id<input type="hidden" name="id" value="$!content.id" /><td>
+		<input type="hidden" name="id" value="$!content.id" />
 		<tr>
 			<td><b>Content:</b></td>
 			<td><input type="text" name="content" value="$!content.content"/><td>
@@ -47,12 +47,24 @@
 			<td>
 		</tr>
 		<tr>
-			<td><b>IdPromo:</b></td>
-			<td><input type="text" name="idPromo" value="$!content.idPromo"/><td>
+			<td><b>Promo:</b></td>
+			<td><SELECT NAME="idPromo" SIZE=1> 
+				#foreach($promo in $promos)
+				<OPTION VALUE="$promo.id" 
+				#if($promo.id==$content.idPromo) selected #end>$promo.percent % discount until $promo.endDate</OPTION>
+				#end 
+				</SELECT> 
+			<td>
 		</tr>
 		<tr>
-			<td><b>IdTypeFile:</b></td>
-			<td><input type="text" name="idTypeFile" value="$!content.idTypeFile"/><td>
+			<td><b>Type of file:</b></td>
+			<td><SELECT NAME="idTypeFile" SIZE=1> 
+				#foreach($typeFile in $typeFiles)
+				<OPTION VALUE="$typeFile.id" 
+				#if($typeFile.id==$content.idTypeFile) selected #end>$typeFile.mime</OPTION>
+				#end 
+				</SELECT> 
+			<td>
 		</tr>
 	</table>
   #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
