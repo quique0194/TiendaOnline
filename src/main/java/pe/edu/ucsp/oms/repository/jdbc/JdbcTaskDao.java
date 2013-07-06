@@ -24,7 +24,7 @@ public class JdbcTaskDao extends JdbcGenericDao<Task, Long> implements TaskDao {
 		String sql = "UPDATE " + getTableName() + " SET task = ? WHERE id = ?";
 		jdbcTemplate.update(sql, task.getTask(), task.getId());
 	}
-
+	
 	@Override
 	protected SimpleJdbcInsert createJdbcInsert() {
 		return new SimpleJdbcInsert(jdbcTemplate.getDataSource())
@@ -49,4 +49,5 @@ public class JdbcTaskDao extends JdbcGenericDao<Task, Long> implements TaskDao {
 			return task;
 		}
 	}
+
 }

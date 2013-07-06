@@ -1,0 +1,23 @@
+<html>
+<body>
+<title>Details of Category</title>
+<h1>$category.name</h1>
+	<a href="../administrate.html">View all...</a>
+	<hr>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Name:</b></td>
+			<td>$category.name<td>
+		</tr>
+		<tr>
+			<td><b>Parents:</b></td>
+			<td>#foreach($parent in $parents)
+			$parent.name/
+			#end <td>
+		</tr>
+	</table>
+	<br />
+	<a href="edit.html">Modify</a>
+</body>
+</html>
