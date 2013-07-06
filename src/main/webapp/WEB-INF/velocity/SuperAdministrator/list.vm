@@ -1,4 +1,13 @@
 <html>
+<<<<<<< HEAD
+<body>
+#if($admis.empty)
+	<div>No hay administradores</div>
+#else
+	<ul>
+	#foreach($admi in $admis)
+		<li><a href="${admi.id}/details.html">$admi.firstName $admi.lastName</a></li>
+=======
 <body>	
 <a href="/TiendaOnline/homeSuperAdministrator.html">Go back</a>
 #if($superadmis.empty)
@@ -8,6 +17,7 @@
 	<ul>
 	#foreach($superadmi in $superadmis)
 		<li><a href="${superadmi.id}/details.html">View Account</a></li>
+>>>>>>> a1a4f3b974f3bfc6a5d1a0ca8ecc5ef3c52ac2ff
 	#end
 	</ul>
 #end
