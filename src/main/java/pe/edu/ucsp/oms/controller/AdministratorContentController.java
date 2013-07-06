@@ -13,8 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pe.edu.ucsp.oms.domain.Category;
 import pe.edu.ucsp.oms.domain.Content;
+import pe.edu.ucsp.oms.domain.Promo;
+import pe.edu.ucsp.oms.domain.TypeContent;
+import pe.edu.ucsp.oms.domain.TypeFile;
 import pe.edu.ucsp.oms.repository.CategoryDao;
 import pe.edu.ucsp.oms.repository.ContentDao;
+import pe.edu.ucsp.oms.repository.PromoDao;
+import pe.edu.ucsp.oms.repository.TypeContentDao;
+import pe.edu.ucsp.oms.repository.TypeFileDao;
 
 @Controller
 @RequestMapping("/Administrator/Content")
@@ -25,6 +31,15 @@ public class AdministratorContentController {
 	
 	@Inject 
 	CategoryDao categoryDao;
+	
+	@Inject 
+	PromoDao promoDao;
+	
+	@Inject 
+	TypeFileDao typeFileDao;
+	
+	@Inject 
+	TypeContentDao typeContentDao;
 	
 	
 	@RequestMapping("/administrate.html")
@@ -50,6 +65,12 @@ public class AdministratorContentController {
 		Category category=categoryDao.find(content.getIdCategory());
 		view.addObject("category", category);
 		view.addObject("parents",categoryDao.findParents(category.getId()));
+		Promo promo=promoDao.find(content.getIdPromo());
+		view.addObject("promo",promo);
+		TypeFile typeFile = typeFileDao.find(content.getIdTypeFile());
+		view.addObject("typeFile", typeFile);
+		TypeContent typeContent=typeContentDao.find(typeFile.getIdTypeContent());
+		view.addObject("typeContent", typeContent);
 		view.setViewName("Administrator/Content/details");
 		return view;
 	}

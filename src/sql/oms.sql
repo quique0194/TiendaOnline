@@ -295,11 +295,30 @@ insert into Users values(null,'kike', '123456', 'Jose Enrique', 'Carrillo Pino',
 insert into Users values(NULL,'mbustamante', '123456', 'Miguel Angel', 'Bustamante Cayo','miguel@gmail.com', 1, 100, 15 );
 
 
-insert into Contents values(null, 'D:\Contenido1', 'Contenido1', 'kike', 'Contenido de prueba', 5, 18, 1, 45,1,1);
-insert into Contents values(null, 'D:\Contenido2', 'Contenido2', 'kike', 'Contenido de prueba', 10, 35, 1, 35,2,1);
+insert into Type_content values(null, 'image');
+insert into Type_content values(null, 'audio');
+insert into Type_content values(null, 'video');
 
-insert into Promos values(null, '03-03-2013', '12-12-2013', 20);
-insert into Promos values(null, '01-01-2013', '03-03-2013',30);
+insert into Type_file values(null, 'jpg', 'image/jpg', 1);
+insert into Type_file values(null, 'png', 'image/png', 1);
+insert into Type_file values(null, 'mp3', 'audio/mp3', 2);
+insert into Type_file values(null, 'wav', 'audio/wav', 2);
+insert into Type_file values(null, 'avi', 'video/avi', 3);
+insert into Type_file values(null, 'mpg', 'video/mpg', 3);
+
+insert into Contents values(null, '~/Contenido1', 'Contenido1', 'autor1', 'Contenido de prueba', 5, 5, 1, 4, 1, 1);
+insert into Contents values(null, '~/Contenido2', 'Contenido2', 'autor2', 'Contenido de prueba', 10, 10, 1, 8, 2, 1);
+insert into Contents values(null, '~/Contenido3', 'Contenido3', 'autor3', 'Contenido de prueba', 15, 15, 1, 12, 1, 2);
+insert into Contents values(null, '~/Contenido4', 'Contenido4', 'autor4', 'Contenido de prueba', 25, 25, 1, 16, 2, 2);
+insert into Contents values(null, '~/Contenido5', 'Contenido5', 'autor5', 'Contenido de prueba', 35, 35, 1, 20, 1, 3);
+insert into Contents values(null, '~/Contenido6', 'Contenido6', 'autor6', 'Contenido de prueba', 40, 40, 1, 24, 2, 3);
+insert into Contents values(null, '~/Contenido7', 'Contenido7', 'autor7', 'Contenido de prueba', 45, 45, 1, 28, 1, 4);
+insert into Contents values(null, '~/Contenido8', 'Contenido8', 'autor8', 'Contenido de prueba', 50, 50, 1, 32, 2, 4);
+insert into Contents values(null, '~/Contenido9', 'Contenido9', 'autor9', 'Contenido de prueba', 55, 55, 1, 36, 1, 5);
+insert into Contents values(null, '~/Contenido10', 'Contenido10', 'autor10', 'Contenido de prueba', 60, 60, 1, 40, 2, 5);
+insert into Contents values(null, '~/Contenido11', 'Contenido11', 'autor11', 'Contenido de prueba', 65, 65, 1, 44, 1, 6);
+insert into Contents values(null, '~/Contenido12', 'Contenido12', 'autor12', 'Contenido de prueba', 70, 70, 1, 46, 2, 6);
+
 
 insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
 insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
@@ -317,6 +336,12 @@ INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_admini
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091530', 'detail3', 2, 1);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091531', 'detail5', 1, 2);
 INSERT INTO `Portal_Descarga`.`Logs_administrator` (`date`, `detail`, `id_administrator`, `id_task`) VALUES ('19970523091532', 'detail4', 5, 4);
+
+
+insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('12/12/12', '20/12/05', 20);
+insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('01/12/12', '12/01/13', 15);
+insert into `Portal_Descarga`.`Promos`(`start_date`,`end_date`,`percent`) VALUES ('12/01/12', '14/06/11', 5);
+
 INSERT INTO `Portal_Descarga`.`SuperAdministrator` ( `username`, `password`, `first_name`, `last_name`, `email`) VALUES ('Great_Kaiosama', '123456', 'Kaio', 'Sama', 'kaio_sama@god');
 
 insert into Type_file values(null,'jpg','mime',1);

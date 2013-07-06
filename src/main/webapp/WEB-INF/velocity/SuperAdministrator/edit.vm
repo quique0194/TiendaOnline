@@ -31,6 +31,5 @@
   #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
   <br>
   <input type="submit" value="Save"/>
-  
 </form>
 </html>

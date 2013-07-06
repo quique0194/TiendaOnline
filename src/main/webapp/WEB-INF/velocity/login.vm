@@ -1,10 +1,17 @@
 <html>
 <body>
+<title>Login </title>
 <form action="auth.html" method="POST">
 Username: <input type="text" name="username" /> <br />
 Password: <input type="password" name="password" /> <br />
   
-  <input type="submit" value="Login" />
+  <input type="submit" value="Sign In" />
+  
+  
+  <a href="register.html" target="">
+   <input type="button" name="boton" value="Sign Up" /> </a>
+  
+  
 </form>
 </body>
 </html>

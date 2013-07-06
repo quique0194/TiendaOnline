@@ -1,0 +1,16 @@
+<html>
+<body>
+	<a href="../task.html">Go back</a>
+	<br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$details.id<td>
+		</tr>
+		<tr>
+			<td><b>Task:</b></td>
+			<td>$details.task<td>
+		</tr>
+	</table>
+</body>
+</html>

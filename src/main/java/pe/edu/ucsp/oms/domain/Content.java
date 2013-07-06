@@ -18,7 +18,7 @@ public class Content implements BaseEntity<Long>{
 	private int size;
 	private int timesDownload;
 	private Long idCategory;
-	private Integer idPromo;	
+	private Long idPromo;	
 	private Long idTypeFile;	
 	
 
@@ -126,12 +126,12 @@ public class Content implements BaseEntity<Long>{
 	}
 
 
-	public Integer getIdPromo() {
+	public Long getIdPromo() {
 		return idPromo;
 	}
 
 
-	public void setIdPromo(Integer idPromo) {
+	public void setIdPromo(Long idPromo) {
 		this.idPromo = idPromo;
 	}
 
@@ -144,6 +144,8 @@ public class Content implements BaseEntity<Long>{
 	public void setIdTypeFile(Long idTypeFile) {
 		this.idTypeFile = idTypeFile;
 	}
+
+
 
 
 
