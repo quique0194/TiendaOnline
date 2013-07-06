@@ -2,12 +2,15 @@
 <body>
 	<a href="../task.html">Go back</a>
 	<br />
-	#foreach($task1 in $details)
-	Task:<br/>
-		<li>$task1.id</li>
-		<li>$task1.task</li>
-		<br/>
-	</ul>
-#end
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$details.id<td>
+		</tr>
+		<tr>
+			<td><b>Task:</b></td>
+			<td>$details.task<td>
+		</tr>
+	</table>
 </body>
 </html>
