@@ -1,0 +1,13 @@
+<html>
+<body>
+	<a href="../task.html">Go back</a>
+	<br />
+	#foreach($task1 in $details)
+	Task:<br/>
+		<li>$task1.id</li>
+		<li>$task1.task</li>
+		<br/>
+	</ul>
+#end
+</body>
+</html>
