@@ -13,24 +13,36 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pe.edu.ucsp.oms.domain.Administrator;
 import pe.edu.ucsp.oms.repository.AdministratorDao;
+import pe.edu.ucsp.oms.repository.LogDao;
 
 @Controller
-@RequestMapping("/SuperAdministrator/Administrator")
+@RequestMapping("/SuperAdministrator/Admi")
 public class SuperAdmiAdmiController {
 
 	@Inject
 	AdministratorDao admiDao;
 	
+	@Inject
+	LogDao logDao;
+	
+	@RequestMapping("/{id}/task.html")
+	public ModelAndView task(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView();
+		view.addObject("log", logDao.filterByAdministrator(id));
+		view.setViewName("SuperAdministrator/Admi/task");
+		return view;
+	}
+	
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
-		return new ModelAndView("Administrator/list", "admis", admiDao.findAll());
+		return new ModelAndView("SuperAdministrator/Admi/list", "admis", admiDao.findAll());
 	}
 
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
 		view.addObject("admi", admiDao.find(id));
-		view.setViewName("Administrator/details");
+		view.setViewName("SuperAdministrator/Admi/details");
 		return view;
 	}
 
@@ -38,7 +50,7 @@ public class SuperAdmiAdmiController {
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
 		view.addObject("admi", admiDao.find(id));
-		view.setViewName("Administrator/edit");
+		view.setViewName("SuperAdministrator/Admi/edit");
 		return view;
 	}
 	
@@ -46,7 +58,7 @@ public class SuperAdmiAdmiController {
 	public ModelAndView delete(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
 		view.addObject("admi", admiDao.find(id));
-		view.setViewName("Administrator/edit");
+		view.setViewName("SuperAdministrator/Admi/edit");
 		return view;
 	}
 
@@ -54,7 +66,7 @@ public class SuperAdmiAdmiController {
 	public ModelAndView add() {
 		ModelAndView view = new ModelAndView();
 		view.addObject("admi", new Administrator());
-		view.setViewName("Administrator/edit");
+		view.setViewName("SuperAdministrator/Admi/edit");
 		return view;
 	}
 

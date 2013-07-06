@@ -1,0 +1,16 @@
+<html>
+<body>
+<a href="/TiendaOnline/homeSuperAdministrator.html">Go back</a></br>
+<a href ="add.html">Add</a>
+
+#if($admis.empty)
+	<div>No Administrators</div>
+#else
+	<ul>
+	#foreach($admi in $admis)
+		<li><a href="${admi.id}/details.html">$admi.firstName $admi.lastName</a></li>
+	#end
+	</ul>
+#end
+</body>
+</html>

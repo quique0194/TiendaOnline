@@ -1,0 +1,34 @@
+<html>
+#set($saveUrl = "save.html")
+<form action="#if($admi.id)../#end$saveUrl" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!admi.id<input type="hidden" name="id" value="$!admi.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Username:</b></td>
+			<td><input type="text" name="username" value="$!admi.username"/><td>
+		</tr>
+		<tr>
+			<td><b>Password:</b></td>
+			<td><input type="text" name="password" value="$!admi.password"/><td>
+		</tr>
+		<tr>
+			<td><b>First Name:</b></td>
+			<td><input type="text" name="firstName" value="$!admi.firstName"/><td>
+		</tr>
+		<tr>
+			<td><b>Last Name:</b></td>
+			<td><input type="text" name="lastName" value="$!admi.lastName"/><td>
+		</tr>
+		<tr>
+			<td><b>Email:</b></td>
+			<td><input type="text" name="email" value="$!admi.email"/><td>
+		</tr>
+	</table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>
