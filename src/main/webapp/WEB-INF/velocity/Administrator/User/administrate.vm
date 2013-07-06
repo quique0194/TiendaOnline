@@ -1,0 +1,27 @@
+<html>
+<body>
+<title>Charge Users</title>
+<h1>Charge Users</h1>
+<hr>
+#if($users.empty)
+	<div>There is not any users</div>
+#else
+	<table>
+	#foreach($user in $users)
+		<tr>
+		<td>
+			<tr>Username: </tr>
+			<tr>$user.username</tr>
+			#set($charge = 0)
+			<tr><input type="text" name="charge" value="$charge"/></tr>
+			<tr><a href="/{$user.id}/charge.html" onclick="return confirm('Are you sure you want to charge this User?')">
+			<button>Charge</button></tr>
+		<td><a href="/${user.id}/{$charge}/charge.html"
+		onclick="return confirm('Are you sure you want to delete this Promotion?')"><button>Delete</button></a></li></td>
+		</tr>
+	#end
+	</table>
+#end
+<hr><a href="/TiendaOnline/homeAdministrator.html"><button>Home</button></a>
+</body>
+</html>

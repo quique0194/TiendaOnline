@@ -22,7 +22,6 @@ import pe.edu.ucsp.oms.repository.CategoryDao;
 @RequestMapping("/Administrator/Category")
 public class AdministratorCategoryController {
 
-
 	@Inject 
 	CategoryDao categoryDao;
 	

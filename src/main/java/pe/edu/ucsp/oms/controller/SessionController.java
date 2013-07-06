@@ -73,8 +73,9 @@ public class SessionController {
 
 	@RequestMapping("/logout.html")
 	public void logout(HttpServletResponse response, HttpServletRequest request) throws IOException {
+		request.getSession().setAttribute("id_admi", null);
 		request.getSession().setAttribute("username", null);
-//		response.sendRedirect("home.html");
+		// response.sendRedirect("home.html");
 	}
 
 	@RequestMapping("/home.html")

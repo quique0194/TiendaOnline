@@ -12,4 +12,5 @@ public interface UserDao extends GenericDao<User, Long> {
 	void updateBalance(User user);
 	
 	boolean existsUser(String username, String password);
+	void charge(Long idUser, Long charge);
 }
