@@ -6,5 +6,6 @@ WELCOME Administrator
 <a href="Promo/list.html"><p>Ver lista de Promos</p>
 <a href="Administrator/Content/administrate.html"><p>Administrate Contents</p>
 <a href="Administrator/Category/administrate.html"><p>Administrate Categories</p>
+<a href="Administrator/info.html"><p>View Info</p>
 </body>
 </html>

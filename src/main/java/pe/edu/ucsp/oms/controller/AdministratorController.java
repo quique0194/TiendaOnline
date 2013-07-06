@@ -2,6 +2,7 @@ package pe.edu.ucsp.oms.controller;
 
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -22,6 +23,16 @@ public class AdministratorController {
 
 	@Inject
 	AdministratorDao admiDao;
+	
+	
+	@RequestMapping("/info.html")
+	public ModelAndView info(HttpServletRequest request) {
+		ModelAndView view = new ModelAndView();
+		view.addObject("administrator", admiDao.find((Long)request.getSession().getAttribute("id_admi")));
+		view.setViewName("Administrator/info");
+		return view;
+	}
+	
 	
 	@RequestMapping("/list.html")
 	public ModelAndView list() {

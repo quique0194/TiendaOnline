@@ -291,9 +291,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- Insertions
 
-insert into Users values(null,'kike', '123456', 'Jose Enrique', 'Carrillo Pino','quique0194@gmail.com', 1, 10, 10 );
-insert into Users values(NULL,'mbustamante', '123456', 'Miguel Angel', 'Bustamante Cayo','miguel@gmail.com', 1, 100, 15 );
-
 
 insert into Type_content values(null, 'image');
 insert into Type_content values(null, 'audio');
@@ -319,12 +316,6 @@ insert into Contents values(null, '~/Contenido10', 'Contenido10', 'autor10', 'Co
 insert into Contents values(null, '~/Contenido11', 'Contenido11', 'autor11', 'Contenido de prueba', 65, 65, 1, 44, 1, 6);
 insert into Contents values(null, '~/Contenido12', 'Contenido12', 'autor12', 'Contenido de prueba', 70, 70, 1, 46, 2, 6);
 
-
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi1', 'admi1', 'admi1', 'admi1','admi1@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi2', 'admi2', 'admi2', 'admi2','admi2@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi3', 'admi3', 'admi3', 'admi3','admi3@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi4', 'admi4', 'admi4', 'admi4','admi4@gmail.com');
-insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi5', 'admi5', 'admi5', 'admi5','admi5@gmail.com');
 
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task1');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task2');
