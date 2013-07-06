@@ -1,0 +1,10 @@
+<html>
+<body>
+Welcome : Super Administrator<hr>
+<title>Home Super Administrator</title>
+	<a href="SuperAdministrator/list.html">Account Manage</a></br>
+	<a href="SuperAdministrator/Administrator/list.html">Administrators Manage</a></br>
+    <a href="login.html">Logout</a></br>
+</body>
+</html>
+<html>

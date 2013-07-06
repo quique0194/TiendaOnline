@@ -1,4 +1,5 @@
 <html>
+<<<<<<< HEAD
 #set($saveUrl = "save.html")
 <form action="#if($admi.id)../#end$saveUrl" method="POST">
 	<table>
@@ -25,10 +26,44 @@
 		<tr>
 			<td><b>Email:</b></td>
 			<td><input type="text" name="email" value="$!admi.email"/><td>
+=======
+<a href="../list.html">Go back</a>
+#set($saveUrl = "save.html")
+<form action="#if($superadmi.id)../#end$saveUrl" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!superadmi.id<input type="hidden" name="id" value="$!superadmi.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Username:</b></td>
+			<td><input type="text" name="username" value="$!superadmi.username"/><td>
+		</tr>
+		<tr>
+			<td><b>Password:</b></td>
+			<td><input type="text" name="password" value="$!superadmi.password"/><td>
+		</tr>
+		<tr>
+			<td><b>First Name:</b></td>
+			<td><input type="text" name="firstName" value="$!superadmi.firstName"/><td>
+		</tr>
+		<tr>
+			<td><b>Last Name:</b></td>
+			<td><input type="text" name="lastName" value="$!superadmi.lastName"/><td>
+		</tr>
+		<tr>
+			<td><b>Email:</b></td>
+			<td><input type="text" name="email" value="$!superadmi.email"/><td>
+>>>>>>> a1a4f3b974f3bfc6a5d1a0ca8ecc5ef3c52ac2ff
 		</tr>
 	</table>
   #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
   <br>
+<<<<<<< HEAD
   <input type="submit" value="Guardar"/>
+=======
+  <input type="submit" value="Save"/>
+  
+>>>>>>> a1a4f3b974f3bfc6a5d1a0ca8ecc5ef3c52ac2ff
 </form>
 </html>
