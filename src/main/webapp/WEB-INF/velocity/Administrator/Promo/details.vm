@@ -1,0 +1,27 @@
+<html>
+<body>
+	<a href="../list.html">Ver todos</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$promo.id<td>
+		</tr>
+		<tr>
+			<td><b>Start Date:</b></td>
+			<td>$promo.startDate<td>
+		</tr>
+		<tr>
+			<td><b>End Date:</b></td>
+			<td>$promo.endDate<td>
+		</tr>
+		<tr>
+			<td><b>Percent:</b></td>
+			<td>$promo.percent<td>
+		</tr>
+	</table>
+	<br />
+	<a href="edit.html">Modify</a>
+	<hr><a href="/TiendaOnline/homeAdministrator.html"><button>Home</button></a>
+</body>
+</html>

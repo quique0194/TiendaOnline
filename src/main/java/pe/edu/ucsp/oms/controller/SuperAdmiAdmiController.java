@@ -67,11 +67,9 @@ public class SuperAdmiAdmiController {
 	}
 	
 	@RequestMapping("/{id}/delete.html")
-	public ModelAndView delete(@PathVariable Long id) {
-		ModelAndView view = new ModelAndView();
-		view.addObject("admi", admiDao.find(id));
-		view.setViewName("SuperAdministrator/Admi/edit");
-		return view;
+	public String delete(@PathVariable Long id){
+		admiDao.removeById(id);
+		return "redirect:../list.html";
 	}
 
 	@RequestMapping("/add.html")
