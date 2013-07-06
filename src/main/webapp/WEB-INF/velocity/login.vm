@@ -5,6 +5,12 @@ Username: <input type="text" name="username" /> <br />
 Password: <input type="password" name="password" /> <br />
   
   <input type="submit" value="Login" />
+  
+  
+  <a href="register.html" target="">
+   <input type="button" name="boton" value="Sign In" /> </a>
+  
+  
 </form>
 </body>
 </html>
