@@ -10,5 +10,10 @@ public interface CategoryDao extends GenericDao<Category, Long> {
 	
 	List<Category> filterByParent (String parent);
 
+	// Retorna una lista con todas las Categias Padres
+	List<Category> findParents(Long id);
+	
 	Category findParent(Long id);
+	
+	
 }

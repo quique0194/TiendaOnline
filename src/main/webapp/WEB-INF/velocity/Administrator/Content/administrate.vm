@@ -1,0 +1,22 @@
+<html>
+<body>
+<title>Administrate Contents</title>
+<h1>Administrate Contents</h1>
+<a href ="add.html">Add New...</a>
+<hr>
+#if($contents.empty)
+	<div>There is not any contents</div>
+#else
+	<table>
+	#foreach($content in $contents)
+		<tr>
+		<td><a href="${content.id}/delete.html"
+		onclick="return confirm('Are you sure you want to delete this Content?')"><button>Delete</button></a></li></td>
+		<td><a href="${content.id}/details.html">$content.name</a></td>		
+		</tr>
+	#end
+	</table>
+#end
+
+</body>
+</html>

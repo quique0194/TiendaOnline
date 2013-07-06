@@ -1,0 +1,61 @@
+<html>
+<title>Edit a Content</title>
+#set($saveUrl = "save.html")
+<form action="#if($content.id)../#end$saveUrl" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!content.id<input type="hidden" name="id" value="$!content.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Content:</b></td>
+			<td><input type="text" name="content" value="$!content.content"/><td>
+		</tr>
+		<tr>
+			<td><b>Name:</b></td>
+			<td><input type="text" name="name" value="$!content.name"/><td>
+		</tr>
+		<tr>
+			<td><b>Autor:</b></td>
+			<td><input type="text" name="autor" value="$!content.autor"/><td>
+		</tr>
+		<tr>
+			<td><b>Descripcion:</b></td>
+			<td><input type="text" name="description" value="$!content.description"/><td>
+		</tr>
+		<tr>
+			<td><b>Precio:</b></td>
+			<td><input type="text" name="price" value="$!content.price"/><td>
+		</tr>
+		<tr>
+			<td><b>Size:</b></td>
+			<td><input type="text" name="size" value="$!content.size"/><td>
+		</tr>
+		<tr>
+			<td><b>TimesDownload:</b></td>
+			<td><input type="text" name="timesDownload" value="$!content.timesDownload"/><td>
+		</tr>
+		<tr>
+			<td><b>Category:</b></td>
+			<td><SELECT NAME="idCategory" SIZE=1> 
+				#foreach($category in $categories)
+				<OPTION VALUE="$category.id" 
+				#if($category.id==$content.idCategory) selected #end>$category.name</OPTION>
+				#end 
+				</SELECT> 
+			<td>
+		</tr>
+		<tr>
+			<td><b>IdPromo:</b></td>
+			<td><input type="text" name="idPromo" value="$!content.idPromo"/><td>
+		</tr>
+		<tr>
+			<td><b>IdTypeFile:</b></td>
+			<td><input type="text" name="idTypeFile" value="$!content.idTypeFile"/><td>
+		</tr>
+	</table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>

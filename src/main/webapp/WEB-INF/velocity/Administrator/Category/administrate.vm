@@ -1,0 +1,27 @@
+<html>
+<body>
+<title>Administrate Categories</title>
+<h1>Administrate Categories</h1>
+<a href ="add.html">Add New...</a>
+<hr>
+#if($categories.empty)
+	<div>There is not any categories</div>
+#else
+	<table>
+	#set( $lastPos = $categories.size() - 1 )
+	#foreach( $pos in [0..$lastPos] )
+		#set( $parentList = $parentLists.get($pos) )
+		#set( $category = $categories.get($pos) )
+		<tr><td><a href="${category.id}/delete.html" 
+		onclick="return confirm('The accion will detele every child category.\n Continue?')"><button>Delete</button></a></td>
+		<td><a href="${category.id}/details.html">
+		#foreach($parent in $parentList)
+			$parent.name/
+		#end
+		$category.name
+		</a><td></tr>
+	#end
+	</table>
+#end
+</body>
+</html>
