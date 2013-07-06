@@ -1,7 +1,8 @@
 <html>
+<body>
 <title>Edit a Category</title>
-<h1>$category.name</h1>
-<a href="details.html">Cancel...</a>
+<h1>$!category.name</h1>
+<a href=#if($category.id) "details.html" #else "administrate.html" #end>Cancel...</a>
 <hr>
 #set($saveUrl = "save.html")
 <form action="#if($category.id)../#end$saveUrl" method="POST">
@@ -29,4 +30,6 @@
   <br>
   <input type="submit" value="Guardar"/>
 </form>
+<hr><a href="/TiendaOnline/homeAdministrator.html"><button>Home</button></a>
+</body>
 </html>
