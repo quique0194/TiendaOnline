@@ -9,6 +9,7 @@ public interface UserDao extends GenericDao<User, Long> {
 	Long findIdByUsername(String username);
 
 	List<User> filterByEmail(String email);
+	void updateBalance(User user);
 	
 	boolean existsUser(String username, String password);
 }
