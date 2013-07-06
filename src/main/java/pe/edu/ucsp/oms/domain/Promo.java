@@ -1,21 +1,21 @@
 package pe.edu.ucsp.oms.domain;
 
-public class Promo implements BaseEntity<Integer>{
+public class Promo implements BaseEntity<Long>{
 		
 	private static final long serialVersionUID = 1L;
 	public final static String TABLE_NAME = "Promos";
 	
-	private Integer id;
+	private Long id;
 	private String startDate;
 	private String endDate;
 	private Integer percent; 
 	
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
