@@ -15,6 +15,7 @@ public interface CategoryDao extends GenericDao<Category, Long> {
 	List<Category> findParents(Long id);
 	
 	Category findParent(Long id);
+	public List<Long> deleteCategory(Long id);
 	
 	void deleteCategory(Long id);
 	

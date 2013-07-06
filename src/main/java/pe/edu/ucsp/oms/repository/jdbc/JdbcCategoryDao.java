@@ -91,6 +91,7 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
 		return ls;		
 	}
 	
+<<<<<<< HEAD
 	public void deleteCategory(Long id) {
 		removeById(id);
 		List<Category> sons = filterByIdParent(id);
@@ -99,6 +100,13 @@ public class JdbcCategoryDao extends JdbcGenericDao<Category, Long> implements C
         {
           deleteCategory(it.next().getId());
         }	
+=======
+	public List<Long> deleteCategory(Long id) {
+		removeById(id);
+		String sql = "DELETE FROM " + getTableName() + " WHERE id_father = ? ";
+		jdbcTemplate.update(sql, id);
+		
+>>>>>>> 491681c76017b06c609435d7efc4ae711d109c46
 	}
 	
 
