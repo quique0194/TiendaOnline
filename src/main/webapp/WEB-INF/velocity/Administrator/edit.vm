@@ -1,18 +1,15 @@
 <html>
 #set($saveUrl = "save.html")
-<form action="#if($admi.id)../#end$saveUrl" method="POST">
+<form action="$saveUrl" method="POST">
+<h1>$admi.username</h1>
+<a href="info.html">Cancel...</a>
+<hr>
 	<table>
+		<input type="hidden" name="id" value="$!admi.id" />
+		<input type="hidden" name="username" value="$!admi.username" />
 		<tr>
-			<td><b>Id:</b></td>
-			<td>$!admi.id<input type="hidden" name="id" value="$!admi.id" /><td>
-		</tr>
-		<tr>
-			<td><b>Username:</b></td>
-			<td><input type="text" name="username" value="$!admi.username"/><td>
-		</tr>
-		<tr>
-			<td><b>Password:</b></td>
-			<td><input type="text" name="password" value="$!admi.password"/><td>
+			<td><b>Nuevo Password:</b></td>
+			<td><input type="text" name="password" value=""/><td>
 		</tr>
 		<tr>
 			<td><b>First Name:</b></td>
@@ -31,4 +28,5 @@
   <br>
   <input type="submit" value="Guardar"/>
 </form>
+<hr><a href="/TiendaOnline/homeAdministrator.html"><button>Home</button></a>
 </html>

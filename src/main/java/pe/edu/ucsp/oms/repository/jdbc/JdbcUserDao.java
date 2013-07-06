@@ -99,4 +99,10 @@ public class JdbcUserDao extends JdbcGenericDao<User, Long> implements
 		jdbcTemplate.update(sql,user.getBalance(), user.getId());
 		
 	}
+
+	@Override
+	public void charge(Long idUser, Long charge) {
+		String sql = "UPDATE " + getTableName() + " SET balance = balance + ?  WHERE id = ?";
+		jdbcTemplate.update(sql, charge, idUser);
+	}
 }

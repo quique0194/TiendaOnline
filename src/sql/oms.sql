@@ -318,6 +318,7 @@ insert into Contents values(null, '~/Contenido12', 'Contenido12', 'autor12', 'Co
 
 insert into `Portal_Descarga`.`Administrator` (`username`, `password`, `first_name`, `last_name`, `email`) values('admi1', 'c7ec5dc454ed8f608b9036be87de1f15', 'admi1', 'admi1','admi1@gmail.com');
 
+
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task1');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task2');
 insert into `Portal_Descarga`.`Tasks` (`task`) VALUES ('task3');

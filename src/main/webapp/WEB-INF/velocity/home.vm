@@ -9,5 +9,6 @@ WELCOME $username $id_user </br></br>
     <a href="User/Content/paidList.html">Purchased Content</a></br>
     <a href="User/Download/record.html">Download Record</a></br>	
     
+    <a href="login.html"><button>Logout</button></a></br>
 </body>
 </html>

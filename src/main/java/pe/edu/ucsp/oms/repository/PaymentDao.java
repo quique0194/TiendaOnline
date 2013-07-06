@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import pe.edu.ucsp.oms.domain.Content;
 import pe.edu.ucsp.oms.domain.Payment;
 
 

@@ -4,7 +4,7 @@ Welcome : Super Administrator<hr>
 <title>Home Super Administrator</title>
 	<a href="SuperAdministrator/list.html">Account Manage</a></br>
 	<a href="SuperAdministrator/Admi/list.html">Administrators Manage</a></br>
-    <a href="login.html">Logout</a></br>
+    <a href="login.html"><button>Logout</button></a></br>
 </body>
 </html>
 <html>
