@@ -12,7 +12,6 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import pe.edu.ucsp.oms.domain.Payment;
-import pe.edu.ucsp.oms.domain.User;
 import pe.edu.ucsp.oms.repository.PaymentDao;
 
 
