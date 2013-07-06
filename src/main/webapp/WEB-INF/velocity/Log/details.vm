@@ -1,0 +1,25 @@
+<html>
+<body>
+	<a href="../list.html">Ver todos</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$log.id<td>
+		</tr>
+		<tr>
+			<td><b>Fecha:</b></td>
+			<td>$log.date<td>
+		</tr>
+		<tr>
+			<td><b>Task:</b></td>
+			<td>$log.id_task<td>
+		</tr>
+		<tr>
+			<td><b>Detail</b></td>
+			<td>$log.detail<td>
+		</tr>
+	</table>
+	<br />
+</body>
+</html>

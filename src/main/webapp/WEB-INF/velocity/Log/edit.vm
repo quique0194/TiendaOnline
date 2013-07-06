@@ -1,0 +1,26 @@
+<html>
+#set($saveUrl = "save.html")
+<form action="#if($log.id)../#end$saveUrl" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!log.id<input type="hidden" name="id" value="$!log.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Fecha:</b></td>
+			<td><input type="text" name="username" value="$!log.date"/><td>
+		</tr>
+		<tr>
+			<td><b>Task:</b></td>
+			<td><input type="text" name="password" value="$!log.id_task"/><td>
+		</tr>
+		<tr>
+			<td><b>Detalle:</b></td>
+			<td><input type="text" name="firstName" value="$!log.detail"/><td>
+		</tr>
+	</table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>

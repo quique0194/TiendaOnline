@@ -41,14 +41,14 @@ public class JdbcAdministratorDao extends JdbcGenericDao<Administrator, Long> im
 
 	@Override
 	public Administrator findByEmail(String email) {
-    String sql = "SELECT * FROM " + getTableName() + " WHERE email = :email";
+    String sql = "SELECT * FROM " + getTableName() + " WHERE email LIKE ?";
     SqlParameterSource namedParameters = new MapSqlParameterSource("email", email);
     return jdbcTemplate.queryForObject(sql, getRowMapper(), namedParameters);
 	}
 
 	@Override
 	public List<Administrator> filterByEmail(String email) {
-    String sql = "SELECT * FROM " + getTableName() + " WHERE email LIKE :email";
+    String sql = "SELECT * FROM " + getTableName() + " WHERE email LIKE ?";
     SqlParameterSource namedParameters = new MapSqlParameterSource("email", email);
     return jdbcTemplate.query(sql, getRowMapper(), namedParameters);
 	}

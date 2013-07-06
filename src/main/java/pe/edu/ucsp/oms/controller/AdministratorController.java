@@ -14,14 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 import pe.edu.ucsp.oms.domain.Administrator;
 import pe.edu.ucsp.oms.repository.AdministratorDao;
 
-
 @Controller
 @RequestMapping("/Administrator")
 public class AdministratorController {
 
 	@Inject
 	AdministratorDao admiDao;
-
+	
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
 		return new ModelAndView("Administrator/list", "admis", admiDao.findAll());
@@ -37,6 +36,14 @@ public class AdministratorController {
 
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView();
+		view.addObject("admi", admiDao.find(id));
+		view.setViewName("Administrator/edit");
+		return view;
+	}
+	
+	@RequestMapping("/{id}/delete.html")
+	public ModelAndView delete(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
 		view.addObject("admi", admiDao.find(id));
 		view.setViewName("Administrator/edit");
