@@ -1,30 +1,30 @@
 <html>
 <body>
-	<a href="../list.html">Regresar</a>
+	<a href="../list.html">Go back</a>
 	<br /><br />
 	<table>
 		<tr>
 			<td><b>Id:</b></td>
-			<td>$admi.id<td>
+			<td>$superadmi.id<td>
 		</tr>
 		<tr>
 			<td><b>Username:</b></td>
-			<td>$admi.username<td>
+			<td>$superadmi.username<td>
 		</tr>
 		<tr>
 			<td><b>First Name:</b></td>
-			<td>$admi.firstName<td>
+			<td>$superadmi.firstName<td>
 		</tr>
 		<tr>
 			<td><b>Last Name:</b></td>
-			<td>$admi.lastName<td>
+			<td>$superadmi.lastName<td>
 		</tr>
 		<tr>
 			<td><b>Email:</b></td>
-			<td>$admi.email<td>
+			<td>$superadmi.email<td>
 		</tr>
 	</table>
 	<br />
-	<a href="edit.html">Modificar</a>
+	<a href="edit.html">Modify</a>
 </body>
 </html>
