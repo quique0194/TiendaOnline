@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import pe.edu.ucsp.oms.repository.AdministratorDao;
+import pe.edu.ucsp.oms.repository.SuperAdministratorDao;
 import pe.edu.ucsp.oms.repository.UserDao;
 
 @Controller
@@ -21,7 +22,8 @@ public class SessionController {
 	UserDao userDao;
 	@Inject
 	AdministratorDao admiDao;
-	
+	@Inject
+	SuperAdministratorDao superAdmiDao;
 	@RequestMapping("/login.html")
 	public ModelAndView showLogin() {
 		System.out.println("Entramos a login");
@@ -37,12 +39,23 @@ public class SessionController {
 		}
 		else
 		{
-			if(admiDao.existsAdministrator(username, password)){
+			if(superAdmiDao.existsSuperAdministrator(username, password)){
+				request.getSession().setAttribute("id_admi", superAdmiDao.findIdByUsername(String.valueOf(username)));
 				request.getSession().setAttribute("username", String.valueOf(username));
-				response.sendRedirect("homeAdministrator.html");
+				response.sendRedirect("homeSuperAdministrator.html");
 			}
 			else
-			request.getSession().setAttribute("username", null);
+			{
+				if(admiDao.existsAdministrator(username, password)){
+					request.getSession().setAttribute("id_admi", admiDao.findIdByUsername(String.valueOf(username)));
+					request.getSession().setAttribute("username", String.valueOf(username));
+					response.sendRedirect("homeAdministrator.html");
+				}
+				else{
+				request.getSession().setAttribute("username", null);
+				}
+			}
+			
 		}
 		
 

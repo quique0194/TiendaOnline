@@ -81,4 +81,11 @@ public class JdbcAdministratorDao extends JdbcGenericDao<Administrator, Long> im
 			return admi;
 		}
 	}
+
+	@Override
+	public Long findIdByUsername(String username) {
+		String sql = "SELECT * FROM " + getTableName() + " WHERE username = ?";
+        return jdbcTemplate.queryForObject(sql, getRowMapper(), username).getId();
+		
+	}
 }
