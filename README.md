@@ -33,3 +33,6 @@ Reparticion de clases:
 
 Pendientes: 
   Agregar un trigger a la base de datos que borre todas las categorias hijas cuando la categoria padre es borrada
+
+  
+  HOLA MUNDO
